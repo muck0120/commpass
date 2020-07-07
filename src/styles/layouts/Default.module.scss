@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  padding: 60px calc((100% - 1000px) / 2) 60px;
+}
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+}
