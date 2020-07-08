@@ -1,5 +1,5 @@
 .header a {
-  opacity: 1.0;
+  opacity: 1;
   transition: all 0.3s;
 }
 
@@ -9,13 +9,13 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 60px;
   padding: 0 30px;
   background-color: #ebe9e4;
   border-bottom: solid 3px #9b3016;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .title {
@@ -30,8 +30,8 @@
 
 .icons {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .icon {

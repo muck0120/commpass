@@ -9,20 +9,20 @@
 }
 
 .tip {
-  font-size: 12px;
-  margin-top: 10px;
-  line-height: 1.5;
   display: list-item;
-  list-style-type: desc;
-  list-style-position: inside;
+  margin-top: 10px;
   margin-left: 1.4em;
-	text-indent: -1.4em;
+  font-size: 12px;
+  line-height: 1.5;
+  text-indent: -1.4em;
+  list-style-position: inside;
+  list-style-type: desc;
 }
 
 .tip a {
   color: #9b3016;
   text-decoration: underline;
-  opacity: 1.0;
+  opacity: 1;
   transition: all 0.3s;
 }
 
@@ -34,7 +34,7 @@
 .copyright {
   display: block;
   margin-top: 30px;
-  text-align: right;
   font-weight: bold;
   font-size: 12px;
+  text-align: right;
 }

@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import styles from 'styles/components/AppHeader.module.scss';
-import logo from 'images/components/AppHeader/logo.svg'
-import connpass from 'images/components/AppHeader/icon-connpass.svg'
-import twitter from 'images/components/AppHeader/icon-twitter.svg'
-import github from 'images/components/AppHeader/icon-github.svg'
+import logo from 'images/components/AppHeader/logo.svg';
+import connpass from 'images/components/AppHeader/icon-connpass.svg';
+import twitter from 'images/components/AppHeader/icon-twitter.svg';
+import github from 'images/components/AppHeader/icon-github.svg';
 
 const AppHeader: FC = () => {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>
         <Link to="/">
-          <img src={logo} alt="commpass"/>
+          <img src={logo} alt="commpass" />
         </Link>
       </h1>
       <ul className={styles.icons}>
@@ -22,7 +22,7 @@ const AppHeader: FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={connpass} alt="connpass"/>
+            <img src={connpass} alt="connpass" />
           </a>
         </li>
         <li className={styles.icon}>
@@ -31,7 +31,7 @@ const AppHeader: FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={twitter} alt="Twitter"/>
+            <img src={twitter} alt="Twitter" />
           </a>
         </li>
         <li className={styles.icon}>
@@ -40,12 +40,12 @@ const AppHeader: FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={github} alt="GitHub"/>
+            <img src={github} alt="GitHub" />
           </a>
         </li>
       </ul>
     </header>
-  )
+  );
 };
 
 export default AppHeader;
