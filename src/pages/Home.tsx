@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import SearchCondition from 'components/SearchCondition';
+import CurrentSearchCondition from 'components/CurrentSearchCondition';
 import styles from 'styles/pages/Home.module.scss';
 
 const Home: FC = () => {
@@ -10,7 +11,9 @@ const Home: FC = () => {
         <SearchCondition />
       </div>
       <main className={styles.main}>
-        <aside className={styles.sidebar}>{/* 現在の検索条件 */}</aside>
+        <aside className={styles.sidebar}>
+          <CurrentSearchCondition />
+        </aside>
         <article className={styles.articles}>{/* 記事一覧 */}</article>
       </main>
     </div>
