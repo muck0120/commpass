@@ -22,3 +22,28 @@
 .articles {
   width: 680px;
 }
+
+.articles_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 15px;
+  background-color: #9b3016;
+}
+
+.articles_heading_title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.articles_heading_page {
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.articles_card {
+  margin-top: 10px;
+}

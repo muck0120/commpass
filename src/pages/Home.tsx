@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 
 import SearchCondition from 'components/SearchCondition';
 import CurrentSearchCondition from 'components/CurrentSearchCondition';
+import ArticleCard from 'components/ArticleCard';
 import styles from 'styles/pages/Home.module.scss';
 
 const Home: FC = () => {
@@ -14,7 +15,19 @@ const Home: FC = () => {
         <aside className={styles.sidebar}>
           <CurrentSearchCondition />
         </aside>
-        <article className={styles.articles}>{/* 記事一覧 */}</article>
+        <article className={styles.articles}>
+          <div className={styles.articles_heading}>
+            <h2 className={styles.articles_heading_title}>
+              1,350件がヒットしました
+            </h2>
+            <div className={styles.articles_heading_page}>3/15ページ</div>
+          </div>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
+            <div key={index} className={styles.articles_card}>
+              <ArticleCard />
+            </div>
+          ))}
+        </article>
       </main>
     </div>
   );
