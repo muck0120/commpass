@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
 
 import AppHeader from 'components/AppHeader';
 import AppFooter from 'components/AppFooter';
-
 import styles from 'styles/layouts/Default.module.scss';
 
 const Default: FC = ({ children }) => {
@@ -18,10 +16,6 @@ const Default: FC = ({ children }) => {
       </div>
     </div>
   );
-};
-
-Default.propTypes = {
-  children: PropTypes.element.isRequired,
 };
 
 export default Default;

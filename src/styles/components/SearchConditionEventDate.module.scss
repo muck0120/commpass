@@ -1,0 +1,33 @@
+.wrapper,
+.group,
+.select,
+.select_block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.group {
+  margin-right: 20px;
+}
+
+.select {
+  margin-left: 15px;
+}
+
+.select_block + .select_block {
+  margin-left: 15px;
+}
+
+.form_wrap {
+  width: 80px;
+  height: 20px;
+}
+
+.select_block.year .form_wrap {
+  width: 100px;
+}
+
+.select_block .unit {
+  margin-left: 5px;
+}

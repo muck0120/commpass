@@ -72,6 +72,7 @@
                 "functions": false
             }
         ],
-        "no-console": "off"
+        "no-console": "off",
+        "react/prop-types": "off"
     }
 }
