@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 680px;
+}
+
+.link,
+.content,
+.map {
+  margin-top: 20px;
+}
+
+.sidebar {
+  width: 280px;
+}
