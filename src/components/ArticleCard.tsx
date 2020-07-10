@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from 'styles/components/ArticleCard.module.scss';
-import calendar from 'images/components/ArticleCard/icon-calendar.svg';
-import map from 'images/components/ArticleCard/icon-map.svg';
-import author from 'images/components/ArticleCard/icon-author.svg';
+import calendar from 'images/commons/icon-calendar.svg';
+import map from 'images/commons/icon-map.svg';
+import author from 'images/commons/icon-author.svg';
 
 const ArticleCard: FC = () => {
   return (
-    <Link to="/event" className={styles.container}>
+    <Link to="/event" target="_blank" className={styles.container}>
       <h3 className={styles.title}>
         ヒューマンネットワーク高専（HNK）月例会(2020年07月度)【ZOOM利用予定】
       </h3>

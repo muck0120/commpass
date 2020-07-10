@@ -10,7 +10,7 @@
 
 .main {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   margin-top: 60px;
 }
@@ -46,4 +46,8 @@
 
 .articles_card {
   margin-top: 10px;
+}
+
+.articles_pagination {
+  margin-top: 50px;
 }

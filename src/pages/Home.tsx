@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import SearchCondition from 'components/SearchCondition';
 import CurrentSearchCondition from 'components/CurrentSearchCondition';
 import ArticleCard from 'components/ArticleCard';
+import ArticlePager from 'components/ArticlePager';
 import styles from 'styles/pages/Home.module.scss';
 
 const Home: FC = () => {
@@ -27,6 +28,9 @@ const Home: FC = () => {
               <ArticleCard />
             </div>
           ))}
+          <div className={styles.articles_pagination}>
+            <ArticlePager />
+          </div>
         </article>
       </main>
     </div>

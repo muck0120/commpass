@@ -14,13 +14,13 @@ import 'styles/commons/base.scss';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Switch>
-        <DefaultLayout>
+      <DefaultLayout>
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/event" component={Event} />
           <Redirect to="/" />
-        </DefaultLayout>
-      </Switch>
+        </Switch>
+      </DefaultLayout>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
