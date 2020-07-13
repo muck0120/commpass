@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchConditionCheck.module.scss';
+import styles from 'styles/components/SearchFormCheck.module.scss';
 
 interface CheckboxProps {
   name: string;
   option: { value: string; label: string };
 }
 
-const SearchConditionSelect: FC<CheckboxProps> = ({ name, option }) => {
+const SearchFormSelect: FC<CheckboxProps> = ({ name, option }) => {
   return (
     <label htmlFor={`${name}_${option.value}`} className={styles.wrapper}>
       <input
@@ -20,4 +20,4 @@ const SearchConditionSelect: FC<CheckboxProps> = ({ name, option }) => {
   );
 };
 
-export default SearchConditionSelect;
+export default SearchFormSelect;

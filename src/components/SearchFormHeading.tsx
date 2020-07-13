@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchConditionHeading.module.scss';
+import styles from 'styles/components/SearchFormHeading.module.scss';
 
-const SearchConditionHeading: FC = () => {
+const SearchFormHeading: FC = () => {
   return (
     <div className={styles.heading}>
       <h2 className={styles.title}>検索条件</h2>
@@ -11,4 +11,4 @@ const SearchConditionHeading: FC = () => {
   );
 };
 
-export default SearchConditionHeading;
+export default SearchFormHeading;

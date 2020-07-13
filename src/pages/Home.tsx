@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 
-import SearchCondition from 'components/SearchCondition';
+import SearchForm from 'components/SearchForm';
 import CurrentSearchCondition from 'components/CurrentSearchCondition';
-import ArticleCard from 'components/ArticleCard';
-import ArticlePager from 'components/ArticlePager';
+import ArticleCard from 'components/EventListCard';
+import ArticlePager from 'components/EventListPager';
 import styles from 'styles/pages/Home.module.scss';
 
 const Home: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.search}>
-        <SearchCondition />
+        <SearchForm />
       </div>
       <main className={styles.main}>
         <aside className={styles.sidebar}>

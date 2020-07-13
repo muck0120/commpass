@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchConditionTextForm.module.scss';
+import styles from 'styles/components/SearchFormText.module.scss';
 
-const SearchConditionTextForm: FC = () => {
+const SearchFormTextForm: FC = () => {
   return (
     <div className={styles.container}>
       <input
@@ -13,4 +13,4 @@ const SearchConditionTextForm: FC = () => {
   );
 };
 
-export default SearchConditionTextForm;
+export default SearchFormTextForm;

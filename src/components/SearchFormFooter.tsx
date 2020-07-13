@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import Checkbox from 'components/SearchConditionCheck';
-import styles from 'styles/components/SearchConditionFooter.module.scss';
+import Checkbox from 'components/SearchFormCheck';
+import styles from 'styles/components/SearchFormFooter.module.scss';
 
-const SearchConditionFooter: FC = () => {
+const SearchFormFooter: FC = () => {
   return (
     <div className={styles.container}>
       <Checkbox
@@ -15,4 +15,4 @@ const SearchConditionFooter: FC = () => {
   );
 };
 
-export default SearchConditionFooter;
+export default SearchFormFooter;

@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchConditionRadio.module.scss';
+import styles from 'styles/components/SearchFormRadio.module.scss';
 
 interface RadioButtonProps {
   name: string;
   option: { value: string; label: string };
 }
 
-const SearchConditionSelect: FC<RadioButtonProps> = ({ name, option }) => {
+const SearchFormSelect: FC<RadioButtonProps> = ({ name, option }) => {
   return (
     <label htmlFor={`${name}_${option.value}`} className={styles.wrapper}>
       <input
@@ -21,4 +21,4 @@ const SearchConditionSelect: FC<RadioButtonProps> = ({ name, option }) => {
   );
 };
 
-export default SearchConditionSelect;
+export default SearchFormSelect;

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/ArticlePager.module.scss';
-import prev from 'images/components/ArticlePager/pager-prev.svg';
-import next from 'images/components/ArticlePager/pager-next.svg';
+import styles from 'styles/components/EventListPager.module.scss';
+import prev from 'images/components/EventListPager/pager-prev.svg';
+import next from 'images/components/EventListPager/pager-next.svg';
 
-const ArticlePager: FC = () => {
+const EventListPager: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.prev}>
@@ -26,4 +26,4 @@ const ArticlePager: FC = () => {
   );
 };
 
-export default ArticlePager;
+export default EventListPager;

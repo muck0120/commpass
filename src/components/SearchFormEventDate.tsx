@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import RadioButton from 'components/SearchConditionRadio';
-import Select from 'components/SearchConditionSelect';
-import styles from 'styles/components/SearchConditionEventDate.module.scss';
-import { EventDate, Year, Month, Day } from 'data/search-condition';
+import RadioButton from 'components/SearchFormRadio';
+import Select from 'components/SearchFormSelect';
+import styles from 'styles/components/SearchFormEventDate.module.scss';
+import { EventDate, Year, Month, Day } from 'data/search-form';
 
-const SearchConditionSelect: FC = () => {
+const SearchFormSelect: FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.group}>
@@ -59,4 +59,4 @@ const SearchConditionSelect: FC = () => {
   );
 };
 
-export default SearchConditionSelect;
+export default SearchFormSelect;

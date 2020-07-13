@@ -1,20 +1,15 @@
 import React, { FC } from 'react';
 
-import Heading from 'components/SearchConditionHeading';
-import Select from 'components/SearchConditionSelect';
-import Checkbox from 'components/SearchConditionCheck';
-import EventDate from 'components/SearchConditionEventDate';
-import TextForm from 'components/SearchConditionTextForm';
-import Footer from 'components/SearchConditionFooter';
-import styles from 'styles/components/SearchCondition.module.scss';
-import {
-  Prefectures,
-  OrderBy,
-  Languages,
-  Frameworks,
-} from 'data/search-condition';
+import Heading from 'components/SearchFormHeading';
+import Select from 'components/SearchFormSelect';
+import Checkbox from 'components/SearchFormCheck';
+import EventDate from 'components/SearchFormEventDate';
+import TextForm from 'components/SearchFormText';
+import Footer from 'components/SearchFormFooter';
+import styles from 'styles/components/SearchForm.module.scss';
+import { Prefectures, OrderBy, Languages, Frameworks } from 'data/search-form';
 
-const SearchCondition: FC = () => {
+const SearchForm: FC = () => {
   return (
     <>
       <div className={styles.container}>
@@ -75,4 +70,4 @@ const SearchCondition: FC = () => {
   );
 };
 
-export default SearchCondition;
+export default SearchForm;

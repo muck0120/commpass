@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchConditionSelect.module.scss';
+import styles from 'styles/components/SearchFormSelect.module.scss';
 
 interface OptionsProps {
   options: { value: string; label: string }[];
 }
 
-const SearchConditionSelect: FC<OptionsProps> = ({ options }) => {
+const SearchFormSelect: FC<OptionsProps> = ({ options }) => {
   return (
     <div className={styles.wrapper}>
       <select className={styles.select}>
@@ -20,4 +20,4 @@ const SearchConditionSelect: FC<OptionsProps> = ({ options }) => {
   );
 };
 
-export default SearchConditionSelect;
+export default SearchFormSelect;
