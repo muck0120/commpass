@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 
-import SearchForm from 'components/SearchForm';
-import CurrentSearchCondition from 'components/CurrentSearchCondition';
-import ArticleCard from 'components/EventListCard';
-import ArticlePager from 'components/EventListPager';
-import styles from 'styles/pages/Home.module.scss';
+import DefaultTemplate from 'components/templates/Default';
+import SearchForm from 'components/organisms/SearchForm';
+import CurrentSearchCondition from 'components/organisms/CurrentSearchCondition';
+import EventListCard from 'components/molecules/EventListCard';
+import EventListPager from 'components/molecules/EventListPager';
+import styles from 'styles/components/pages/Home.module.scss';
 
 const Home: FC = () => {
   return (
-    <div className={styles.container}>
+    <DefaultTemplate>
       <div className={styles.search}>
         <SearchForm />
       </div>
@@ -25,15 +26,15 @@ const Home: FC = () => {
           </div>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
             <div key={index} className={styles.articles_card}>
-              <ArticleCard />
+              <EventListCard />
             </div>
           ))}
           <div className={styles.articles_pagination}>
-            <ArticlePager />
+            <EventListPager />
           </div>
         </article>
       </main>
-    </div>
+    </DefaultTemplate>
   );
 };
 

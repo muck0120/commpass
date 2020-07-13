@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchFormSelect.module.scss';
+import styles from 'styles/components/atoms/SearchFormSelect.module.scss';
 
 interface OptionsProps {
   options: { value: string; label: string }[];

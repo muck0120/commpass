@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/EventDetailHeader.module.scss';
+import styles from 'styles/components/organisms/EventDetailHeader.module.scss';
 import calendar from 'images/commons/icon-calendar.svg';
 import map from 'images/commons/icon-map.svg';
 import author from 'images/commons/icon-author.svg';

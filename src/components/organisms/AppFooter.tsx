@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/AppFooter.module.scss';
+import styles from 'styles/components/organisms/AppFooter.module.scss';
 
 const AppFooter: FC = () => {
   return (

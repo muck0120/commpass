@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import Heading from 'components/SearchFormHeading';
-import Select from 'components/SearchFormSelect';
-import Checkbox from 'components/SearchFormCheck';
-import EventDate from 'components/SearchFormEventDate';
-import TextForm from 'components/SearchFormText';
-import Footer from 'components/SearchFormFooter';
-import styles from 'styles/components/SearchForm.module.scss';
+import Heading from 'components/molecules/SearchFormHeading';
+import Select from 'components/atoms/SearchFormSelect';
+import Checkbox from 'components/atoms/SearchFormCheck';
+import EventDate from 'components/molecules/SearchFormEventDate';
+import TextForm from 'components/atoms/SearchFormText';
+import Footer from 'components/molecules/SearchFormFooter';
+import styles from 'styles/components/organisms/SearchForm.module.scss';
 import { Prefectures, OrderBy, Languages, Frameworks } from 'data/search-form';
 
 const SearchForm: FC = () => {

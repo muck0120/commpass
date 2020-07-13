@@ -4,9 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Redirect, Route, Switch } from 'react-router';
 
 import * as serviceWorker from 'serviceWorker';
-import DefaultLayout from 'layouts/Default';
-import Home from 'pages/Home';
-import Event from 'pages/Event';
+import Home from 'components/pages/Home';
+import Event from 'components/pages/Event';
 
 import 'styles/commons/reset.scss';
 import 'styles/commons/base.scss';
@@ -14,13 +13,11 @@ import 'styles/commons/base.scss';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <DefaultLayout>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/event" component={Event} />
-          <Redirect to="/" />
-        </Switch>
-      </DefaultLayout>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/event" component={Event} />
+        <Redirect to="/" />
+      </Switch>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

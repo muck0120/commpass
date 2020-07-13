@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from 'styles/components/RelatedEvents.module.scss';
+import styles from 'styles/components/organisms/RelatedEvents.module.scss';
 import calendar from 'images/commons/icon-calendar.svg';
 
 const RelatedEvents: FC = () => {

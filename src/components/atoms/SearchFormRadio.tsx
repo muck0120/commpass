@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchFormRadio.module.scss';
+import styles from 'styles/components/atoms/SearchFormRadio.module.scss';
 
 interface RadioButtonProps {
   name: string;

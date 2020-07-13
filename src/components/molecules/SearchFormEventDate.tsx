@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import RadioButton from 'components/SearchFormRadio';
-import Select from 'components/SearchFormSelect';
-import styles from 'styles/components/SearchFormEventDate.module.scss';
+import RadioButton from 'components/atoms/SearchFormRadio';
+import Select from 'components/atoms/SearchFormSelect';
+import styles from 'styles/components/molecules/SearchFormEventDate.module.scss';
 import { EventDate, Year, Month, Day } from 'data/search-form';
 
 const SearchFormSelect: FC = () => {

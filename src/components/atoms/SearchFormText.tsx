@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchFormText.module.scss';
+import styles from 'styles/components/atoms/SearchFormText.module.scss';
 
 const SearchFormTextForm: FC = () => {
   return (

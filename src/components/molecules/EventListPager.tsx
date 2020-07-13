@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/EventListPager.module.scss';
+import styles from 'styles/components/molecules/EventListPager.module.scss';
 import prev from 'images/components/EventListPager/pager-prev.svg';
 import next from 'images/components/EventListPager/pager-next.svg';
 

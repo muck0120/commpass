@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/CurrentSearchCondition.module.scss';
+import styles from 'styles/components/organisms/CurrentSearchCondition.module.scss';
 
 const CurrentSearchCondition: FC = () => {
   return (

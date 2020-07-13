@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import AppHeader from 'components/AppHeader';
-import AppFooter from 'components/AppFooter';
-import styles from 'styles/layouts/Default.module.scss';
+import AppHeader from 'components/organisms/AppHeader';
+import AppFooter from 'components/organisms/AppFooter';
+import styles from 'styles/components/templates/Default.module.scss';
 
 const Default: FC = ({ children }) => {
   return (

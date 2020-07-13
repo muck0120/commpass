@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/EventDetailMap.module.scss';
+import styles from 'styles/components/organisms/EventDetailMap.module.scss';
 
 const EventDetailContent: FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchFormCheck.module.scss';
+import styles from 'styles/components/atoms/SearchFormCheck.module.scss';
 
 interface CheckboxProps {
   name: string;

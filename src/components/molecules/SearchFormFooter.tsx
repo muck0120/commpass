@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import Checkbox from 'components/SearchFormCheck';
-import styles from 'styles/components/SearchFormFooter.module.scss';
+import Checkbox from 'components/atoms/SearchFormCheck';
+import styles from 'styles/components/molecules/SearchFormFooter.module.scss';
 
 const SearchFormFooter: FC = () => {
   return (

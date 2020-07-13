@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from 'styles/components/AppHeader.module.scss';
+import styles from 'styles/components/organisms/AppHeader.module.scss';
 import logo from 'images/components/AppHeader/logo.svg';
 import connpass from 'images/components/AppHeader/icon-connpass.svg';
 import twitter from 'images/components/AppHeader/icon-twitter.svg';

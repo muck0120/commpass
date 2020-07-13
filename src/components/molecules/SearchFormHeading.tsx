@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/SearchFormHeading.module.scss';
+import styles from 'styles/components/molecules/SearchFormHeading.module.scss';
 
 const SearchFormHeading: FC = () => {
   return (

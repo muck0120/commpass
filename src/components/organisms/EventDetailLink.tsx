@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import styles from 'styles/components/EventDetailLink.module.scss';
+import styles from 'styles/components/organisms/EventDetailLink.module.scss';
 import link from 'images/commons/icon-link.svg';
 
 const EventDetailLink: FC = () => {
