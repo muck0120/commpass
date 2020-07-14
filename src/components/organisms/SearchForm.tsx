@@ -9,7 +9,12 @@ import Footer from 'components/molecules/SearchFormFooter';
 import styles from 'styles/components/organisms/SearchForm.module.scss';
 import { Prefectures, OrderBy, Languages, Frameworks } from 'data/search-form';
 
-const SearchForm: FC = () => {
+export interface PrefectureProps {
+  prefecture: string;
+  setPrefecture: (prefecture: string) => void;
+}
+
+const SearchForm: FC<PrefectureProps> = ({ prefecture, setPrefecture }) => {
   return (
     <>
       <div className={styles.container}>
@@ -19,7 +24,11 @@ const SearchForm: FC = () => {
             <div className={styles.group_select_block}>
               <h3 className={styles.group_label}>都道府県</h3>
               <div className={`${styles.group_form} ${styles.select}`}>
-                <Select options={Prefectures} />
+                <Select
+                  options={Prefectures}
+                  value={prefecture}
+                  setValue={setPrefecture}
+                />
               </div>
             </div>
             <div className={styles.group_select_block}>

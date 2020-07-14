@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import DefaultTemplate from 'components/templates/Default';
-import SearchForm from 'components/organisms/SearchForm';
+import SearchForm from 'containers/organisms/SearchForm';
 import CurrentSearchCondition from 'components/organisms/CurrentSearchCondition';
 import EventListCard from 'components/molecules/EventListCard';
 import EventListPager from 'components/molecules/EventListPager';
