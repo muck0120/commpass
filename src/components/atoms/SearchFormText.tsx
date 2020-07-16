@@ -2,12 +2,24 @@ import React, { FC } from 'react';
 
 import styles from 'styles/components/atoms/SearchFormText.module.scss';
 
-const SearchFormTextForm: FC = () => {
+interface TextProps {
+  value: string;
+  placeholder?: string;
+  setValue: (value: string) => void;
+}
+
+const SearchFormTextForm: FC<TextProps> = ({
+  value,
+  placeholder,
+  setValue,
+}) => {
   return (
     <div className={styles.container}>
       <input
         type="text"
-        placeholder="その他、検索したいキーワードを入力（スペース区切り）"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder={placeholder}
       />
     </div>
   );

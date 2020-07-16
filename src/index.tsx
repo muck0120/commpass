@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 
 import Home from 'components/pages/Home';
 import Event from 'components/pages/Event';
-import Reducer from 'reducers';
+import reducer from 'reducers';
 import * as serviceWorker from 'serviceWorker';
 
 import 'styles/commons/reset.scss';
@@ -23,7 +23,7 @@ const composeReduxDevToolsEnhancers =
   compose;
 
 const store = createStore(
-  Reducer,
+  reducer,
   composeReduxDevToolsEnhancers(applyMiddleware())
 );
 

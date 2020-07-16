@@ -4,19 +4,30 @@ import styles from 'styles/components/atoms/SearchFormRadio.module.scss';
 
 interface RadioButtonProps {
   name: string;
-  option: { value: string; label: string };
+  value: string;
+  label: string;
+  checked: boolean;
+  setValue: (value: string) => void;
 }
 
-const SearchFormSelect: FC<RadioButtonProps> = ({ name, option }) => {
+const SearchFormSelect: FC<RadioButtonProps> = ({
+  name,
+  value,
+  label,
+  checked,
+  setValue,
+}) => {
   return (
-    <label htmlFor={`${name}_${option.value}`} className={styles.wrapper}>
+    <label htmlFor={`${name}_${value}`} className={styles.wrapper}>
       <input
         type="radio"
         name={name}
-        value={option.value}
-        id={`${name}_${option.value}`}
+        value={value}
+        checked={checked}
+        id={`${name}_${value}`}
+        onChange={(e) => setValue(e.target.value)}
       />
-      <span className={styles.label}>{option.label}</span>
+      <span className={styles.label}>{label}</span>
     </label>
   );
 };
