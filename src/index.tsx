@@ -3,29 +3,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Redirect, Route, Switch } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
 
 import Home from 'components/pages/Home';
 import Event from 'components/pages/Event';
-import reducer from 'reducers';
+import store from 'stores';
 import * as serviceWorker from 'serviceWorker';
 
 import 'styles/commons/reset.scss';
 import 'styles/commons/base.scss';
-
-interface ExtendedWindow extends Window {
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-}
-declare let window: ExtendedWindow;
-
-const composeReduxDevToolsEnhancers =
-  (typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
-const store = createStore(
-  reducer,
-  composeReduxDevToolsEnhancers(applyMiddleware())
-);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,32 +1,31 @@
 import React, { FC } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Condition } from 'utils/interfaces';
 import Heading from 'components/molecules/SearchFormHeading';
 import Select from 'components/atoms/SearchFormSelect';
 import Checkbox from 'components/atoms/SearchFormCheck';
-import EventDate from 'containers/molecules/SearchFormEventDate';
+import EventDate from 'components/molecules/SearchFormEventDate';
 import TextForm from 'components/atoms/SearchFormText';
 import Footer from 'components/molecules/SearchFormFooter';
 import styles from 'styles/components/organisms/SearchForm.module.scss';
 import { Prefectures, OrderBy, Languages, Frameworks } from 'data/search-form';
-
-export interface ConditionProps {
-  condition: Condition;
-  setPrefecture: (value: string) => void;
-  setOrderBy: (value: string) => void;
-  setLanguages: (value: string) => void;
-  setFrameworks: (value: string) => void;
-  setKeywords: (value: string) => void;
-}
-
-const SearchForm: FC<ConditionProps> = ({
-  condition,
+import {
   setPrefecture,
   setOrderBy,
   setLanguages,
   setFrameworks,
   setKeywords,
-}) => {
+} from 'stores/condition';
+
+interface ConditionState {
+  condition: Condition;
+}
+
+const SearchForm: FC = () => {
+  const condition = useSelector((state: ConditionState) => state.condition);
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={styles.container}>
@@ -39,7 +38,7 @@ const SearchForm: FC<ConditionProps> = ({
                 <Select
                   options={Prefectures}
                   value={condition.prefecture}
-                  setValue={setPrefecture}
+                  setValue={(value) => dispatch(setPrefecture(value))}
                 />
               </div>
             </div>
@@ -49,7 +48,7 @@ const SearchForm: FC<ConditionProps> = ({
                 <Select
                   options={OrderBy}
                   value={condition.orderBy}
-                  setValue={setOrderBy}
+                  setValue={(value) => dispatch(setOrderBy(value))}
                 />
               </div>
             </div>
@@ -64,7 +63,7 @@ const SearchForm: FC<ConditionProps> = ({
                     value={Language.value}
                     label={Language.label}
                     checkedValues={condition.languages}
-                    setValue={setLanguages}
+                    setValue={(value) => dispatch(setLanguages(value))}
                   />
                 </div>
               ))}
@@ -80,7 +79,7 @@ const SearchForm: FC<ConditionProps> = ({
                     value={Framework.value}
                     label={Framework.label}
                     checkedValues={condition.frameworks}
-                    setValue={setFrameworks}
+                    setValue={(value) => dispatch(setFrameworks(value))}
                   />
                 </div>
               ))}
@@ -98,7 +97,7 @@ const SearchForm: FC<ConditionProps> = ({
               <TextForm
                 value={condition.keywords.join(' ')}
                 placeholder="その他、検索したいキーワードを入力（スペース区切り）"
-                setValue={setKeywords}
+                setValue={(value) => dispatch(setKeywords(value))}
               />
             </div>
           </div>

@@ -10,3 +10,15 @@ export interface Condition {
   };
   keywords: string[];
 }
+
+export interface Event {
+  id: number;
+  title: string;
+  catcher: string;
+  date: string;
+  address: string;
+  owner: string;
+  series: string;
+  limit: number;
+  accepted: number;
+}

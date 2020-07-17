@@ -1,13 +1,21 @@
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 
+import { Event } from 'utils/interfaces';
 import DefaultTemplate from 'components/templates/Default';
-import SearchForm from 'containers/organisms/SearchForm';
+import SearchForm from 'components/organisms/SearchForm';
 import CurrentSearchCondition from 'components/organisms/CurrentSearchCondition';
 import EventListCard from 'components/molecules/EventListCard';
 import EventListPager from 'components/molecules/EventListPager';
 import styles from 'styles/components/pages/Home.module.scss';
 
+interface EventsState {
+  events: Event[];
+}
+
 const Home: FC = () => {
+  const events = useSelector((state: EventsState) => state.events);
+
   return (
     <DefaultTemplate>
       <div className={styles.search}>
@@ -24,9 +32,9 @@ const Home: FC = () => {
             </h2>
             <div className={styles.articles_heading_page}>3/15ページ</div>
           </div>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
-            <div key={index} className={styles.articles_card}>
-              <EventListCard />
+          {events.map((event) => (
+            <div key={event.id} className={styles.articles_card}>
+              <EventListCard event={event} />
             </div>
           ))}
           <div className={styles.articles_pagination}>
