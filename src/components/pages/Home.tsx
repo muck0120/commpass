@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'stores';
 import { fetchEvents } from 'stores/events';
 import DefaultTemplate from 'components/templates/Default';
-import SearchForm from 'components/organisms/SearchForm';
+import SearchFormContainer from 'components/organisms/SearchFormContainer';
 import CurrentSearchCondition from 'components/organisms/CurrentSearchCondition';
 import EventListCard from 'components/molecules/EventListCard';
 import EventListPager from 'components/molecules/EventListPager';
@@ -20,7 +20,7 @@ const Home: FC = () => {
   return (
     <DefaultTemplate>
       <div className={styles.search}>
-        <SearchForm />
+        <SearchFormContainer />
       </div>
       <main className={styles.main}>
         <aside className={styles.sidebar}>

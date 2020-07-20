@@ -19,6 +19,10 @@
   color: #fff;
 }
 
+.toggle:focus {
+  outline: none;
+}
+
 .toggle:hover {
   cursor: pointer;
 }
@@ -34,4 +38,14 @@
   border-style: solid;
   border-width: 0 7px 8px 7px;
   content: '';
+}
+
+.toggle.open::after {
+  transform: rotate(0deg);
+  transition: all 1s;
+}
+
+.toggle.close::after {
+  transform: rotate(180deg);
+  transition: all 1s;
 }

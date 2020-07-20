@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 import { configureStore, Action, ThunkAction } from '@reduxjs/toolkit';
 
-import conditionReducer from 'stores/condition';
 import eventsReducer from 'stores/events';
 
 const rootReducer = combineReducers({
-  condition: conditionReducer,
   events: eventsReducer,
 });
 

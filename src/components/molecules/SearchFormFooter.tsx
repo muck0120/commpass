@@ -1,10 +1,18 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import Checkbox from 'components/atoms/SearchFormCheck';
+
 import styles from 'styles/components/molecules/SearchFormFooter.module.scss';
 
-const SearchFormFooter: FC = () => {
-  const [isRemember, setRemember] = useState(['remember']);
+interface SearchFormFooterProps {
+  isRemember: string[];
+  setRemember: (value: string) => void;
+}
+
+const SearchFormFooter: FC<SearchFormFooterProps> = ({
+  isRemember,
+  setRemember,
+}) => {
   return (
     <div className={styles.container}>
       <Checkbox
@@ -12,9 +20,7 @@ const SearchFormFooter: FC = () => {
         value="remember"
         label="この検索条件を保存する"
         checkedValues={isRemember}
-        setValue={(value: string) =>
-          setRemember(isRemember.length ? [] : [value])
-        }
+        setValue={setRemember}
       />
       <div className={styles.button}>検索する</div>
     </div>
