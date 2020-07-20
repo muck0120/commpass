@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Condition } from 'utils/interfaces';
+import { RootState } from 'stores';
 import RadioButton from 'components/atoms/SearchFormRadio';
 import Select from 'components/atoms/SearchFormSelect';
 import styles from 'styles/components/molecules/SearchFormEventDate.module.scss';
@@ -15,12 +15,8 @@ import {
   setEventDateYmdDay,
 } from 'stores/condition';
 
-interface ConditionState {
-  condition: Condition;
-}
-
 const SearchFormEventDate: FC = () => {
-  const condition = useSelector((state: ConditionState) => state.condition);
+  const condition = useSelector((state: RootState) => state.condition);
   const dispatch = useDispatch();
 
   return (

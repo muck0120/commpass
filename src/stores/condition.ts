@@ -55,44 +55,35 @@ const conditionSlice = createSlice({
   initialState,
   reducers: {
     setPrefecture: (state, action: PayloadAction<string>) => {
-      const draft = state;
-      draft.prefecture = action.payload;
+      state.prefecture = action.payload;
     },
     setOrderBy: (state, action: PayloadAction<string>) => {
-      const draft = state;
-      draft.orderBy = action.payload;
+      state.orderBy = action.payload;
     },
     setLanguages: (state, action: PayloadAction<string>) =>
       setTechnology(state, action, 'languages'),
     setFrameworks: (state, action: PayloadAction<string>) =>
       setTechnology(state, action, 'frameworks'),
-    setEventDateBy: (state, action: PayloadAction<string>) => ({
-      ...state,
-      eventDateBy: action.payload,
-    }),
+    setEventDateBy: (state, action: PayloadAction<string>) => {
+      state.eventDateBy = action.payload;
+    },
     setEventDateYmYear: (state, action: PayloadAction<string>) => {
-      const eventDate = { ...state.eventDate };
-      eventDate.ym.year = action.payload;
+      state.eventDate.ym.year = action.payload;
     },
     setEventDateYmMonth: (state, action: PayloadAction<string>) => {
-      const eventDate = { ...state.eventDate };
-      eventDate.ym.month = action.payload;
+      state.eventDate.ym.month = action.payload;
     },
     setEventDateYmdYear: (state, action: PayloadAction<string>) => {
-      const eventDate = { ...state.eventDate };
-      eventDate.ymd.year = action.payload;
+      state.eventDate.ymd.year = action.payload;
     },
     setEventDateYmdMonth: (state, action: PayloadAction<string>) => {
-      const eventDate = { ...state.eventDate };
-      eventDate.ymd.month = action.payload;
+      state.eventDate.ymd.month = action.payload;
     },
     setEventDateYmdDay: (state, action: PayloadAction<string>) => {
-      const eventDate = { ...state.eventDate };
-      eventDate.ymd.day = action.payload;
+      state.eventDate.ymd.day = action.payload;
     },
     setKeywords: (state, action: PayloadAction<string>) => {
-      const draft = state;
-      draft.keywords = action.payload.split(/[\u{20}\u{3000}]/u);
+      state.keywords = action.payload.split(/[\u{20}\u{3000}]/u);
     },
   },
 });

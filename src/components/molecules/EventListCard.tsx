@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Event } from 'utils/interfaces';
+import { Event } from 'apis/connpassAPI';
 import styles from 'styles/components/molecules/EventListCard.module.scss';
 import calendar from 'images/commons/icon-calendar.svg';
 import map from 'images/commons/icon-map.svg';
@@ -15,14 +15,14 @@ const EventListCard: FC<EventProps> = ({ event }) => {
   return (
     <Link to="/event" target="_blank" className={styles.container}>
       <h3 className={styles.title}>{event.title}</h3>
-      <p className={styles.description}>{event.catcher}</p>
+      <p className={styles.description}>{event.catch}</p>
       <hr className={styles.line} />
       <div className={styles.footer_top}>
         <time
           className={`${styles.date} ${styles.icon}`}
           style={{ backgroundImage: `url(${calendar})` }}
         >
-          {event.date}
+          {event.started_at}
         </time>
         <address
           className={`${styles.address} ${styles.icon}`}
@@ -37,9 +37,13 @@ const EventListCard: FC<EventProps> = ({ event }) => {
             className={`${styles.author} ${styles.icon}`}
             style={{ backgroundImage: `url(${author})` }}
           >
-            {event.owner}
+            {event.owner_display_name}
           </span>
-          <span className={styles.group}>（＠{event.series}）</span>
+          <span className={styles.group}>
+            {event.series && event.series.title && (
+              <span>（＠{event.series.title}）</span>
+            )}
+          </span>
         </cite>
         <p className={styles.participant}>
           参加者：{event.accepted}/{event.limit}人

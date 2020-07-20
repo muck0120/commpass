@@ -73,6 +73,9 @@
             }
         ],
         "no-console": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        // "ignorePropertyModificationsFor" is not working...
+        // https://eslint.org/docs/rules/no-param-reassign
+        "no-param-reassign": "off"
     }
 }

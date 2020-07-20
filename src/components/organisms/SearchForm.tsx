@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Condition } from 'utils/interfaces';
+import { RootState } from 'stores';
 import Heading from 'components/molecules/SearchFormHeading';
 import Select from 'components/atoms/SearchFormSelect';
 import Checkbox from 'components/atoms/SearchFormCheck';
@@ -18,12 +18,8 @@ import {
   setKeywords,
 } from 'stores/condition';
 
-interface ConditionState {
-  condition: Condition;
-}
-
 const SearchForm: FC = () => {
-  const condition = useSelector((state: ConditionState) => state.condition);
+  const condition = useSelector((state: RootState) => state.condition);
   const dispatch = useDispatch();
 
   return (
