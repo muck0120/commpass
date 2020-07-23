@@ -1,4 +1,5 @@
 import React, { FC, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from 'stores';
@@ -12,10 +13,12 @@ import styles from 'styles/components/pages/Home.module.scss';
 
 const Home: FC = () => {
   const events = useSelector((state: RootState) => state.events.data.events);
+  const { search } = useLocation();
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchEvents());
-  }, [dispatch]);
+    dispatch(fetchEvents(search));
+  }, [search, dispatch]);
 
   return (
     <DefaultTemplate>

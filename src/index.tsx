@@ -17,7 +17,7 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/:page(\d+)?" component={Home} />
           <Route exact path="/event" component={Event} />
           <Redirect to="/" />
         </Switch>

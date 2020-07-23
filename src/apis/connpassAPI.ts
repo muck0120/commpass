@@ -43,7 +43,35 @@ export interface EventsResponse {
 }
 /* eslint-enable */
 
-export const getEvents = async (): Promise<Events> => {
-  const url = '/api?count=10';
+export const getEvents = async (queryString: string): Promise<Events> => {
+  const prevParams = new URLSearchParams(queryString);
+  const nextParams = new URLSearchParams();
+
+  const count = '10';
+  const prefecture = prevParams.get('prefecture');
+  const orderBy = prevParams.get('orderBy');
+  const languages = prevParams.get('languages');
+  const frameworks = prevParams.get('frameworks');
+  const ym = prevParams.get('ym');
+  const ymd = prevParams.get('ymd');
+  const keywords = prevParams.get('keywords');
+
+  const keyword = [];
+  if (prefecture) keyword.push(prefecture);
+  if (keywords) keyword.push(keywords);
+
+  const keywordOr = [];
+  if (languages) keywordOr.push(languages);
+  if (frameworks) keywordOr.push(frameworks);
+
+  if (count) nextParams.append('count', count);
+  if (keyword.length > 0) nextParams.append('keyword', keyword.join(','));
+  if (keywordOr.length > 0)
+    nextParams.append('keyword_or', keywordOr.join(','));
+  if (orderBy) nextParams.append('order', orderBy);
+  if (ym) nextParams.append('ym', ym);
+  if (ymd) nextParams.append('ymd', ymd);
+
+  const url = `/api?${nextParams.toString()}`;
   return JSON.parse((await axios.get<string>(url)).data);
 };

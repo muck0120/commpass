@@ -1,25 +1,83 @@
-import React, { FC, useState, Dispatch } from 'react';
+import React, { FC, useState, useEffect, useMemo, Dispatch } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import SearchForm from 'components/organisms/SearchForm';
+import { getConditionFromLocalStorage } from 'app/localStorage';
 
 const SearchFormContainer: FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const [prefecture, setPrefecture] = useState('all');
-  const [orderBy, setOrderBy] = useState('1');
-  const [languages, setLanguages] = useState(['all']);
-  const [frameworks, setFrameworks] = useState(['all']);
-  const [keywords, setKeywords] = useState(['']);
-  const [eventDateBy, setEventDateBy] = useState('all');
-  const [eventDateYm, setEventDateYm] = useState({
-    y: new Date().getFullYear().toString(),
-    m: `0${(new Date().getMonth() + 1).toString()}`.slice(-2),
-  });
-  const [eventDateYmd, setEventDateYmd] = useState({
-    y: new Date().getFullYear().toString(),
-    m: `0${(new Date().getMonth() + 1).toString()}`.slice(-2),
-    d: `0${new Date().getDate().toString()}`.slice(-2),
-  });
-  const [isRemember, setRemember] = useState(['remember']);
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const paramPrefecture = params.get('prefecture');
+  const paramOrderBy = params.get('orderBy');
+  const paramLanguages = params.get('languages');
+  const paramFrameworks = params.get('frameworks');
+  const paramKeywords = params.get('keywords');
+  const paramYm = params.get('ym');
+  const paramYmd = params.get('ymd');
+
+  const y = new Date().getFullYear().toString();
+  const m = `0${(new Date().getMonth() + 1).toString()}`.slice(-2);
+  const d = `0${new Date().getDate().toString()}`.slice(-2);
+
+  const callLanguages = () =>
+    paramLanguages ? paramLanguages.split(',') : ['all'];
+  const callFrameworks = () =>
+    paramFrameworks ? paramFrameworks.split(',') : ['all'];
+  const callKeywords = () => (paramKeywords ? paramKeywords.split(',') : []);
+  const callEventDateYm = () =>
+    paramYm ? { y: paramYm.slice(0, 4), m: paramYm.slice(4, 6) } : { y, m };
+  const callEventDateYmd = () =>
+    paramYmd
+      ? {
+          y: paramYmd.slice(0, 4),
+          m: paramYmd.slice(4, 6),
+          d: paramYmd.slice(6, 8),
+        }
+      : { y, m, d };
+
+  const initialState = {
+    isOpen: true,
+    prefecture: paramPrefecture || 'all',
+    orderBy: paramOrderBy || '1',
+    languages: useMemo(callLanguages, [paramLanguages]),
+    frameworks: useMemo(callFrameworks, [paramFrameworks]),
+    keywords: useMemo(callKeywords, [paramKeywords]),
+    eventDateBy: paramYm ? 'ym' : paramYmd ? 'ymd' : 'all',
+    eventDateYm: useMemo(callEventDateYm, [paramYm, y, m]),
+    eventDateYmd: useMemo(callEventDateYmd, [paramYmd, y, m, d]),
+    isRemember: ['remember'],
+  };
+
+  const [isOpen, setIsOpen] = useState(initialState.isOpen);
+  const [prefecture, setPrefecture] = useState(initialState.prefecture);
+  const [orderBy, setOrderBy] = useState(initialState.orderBy);
+  const [languages, setLanguages] = useState(initialState.languages);
+  const [frameworks, setFrameworks] = useState(initialState.frameworks);
+  const [keywords, setKeywords] = useState<string[]>(initialState.keywords);
+  const [eventDateBy, setEventDateBy] = useState(initialState.eventDateBy);
+  const [eventDateYm, setEventDateYm] = useState(initialState.eventDateYm);
+  const [eventDateYmd, setEventDateYmd] = useState(initialState.eventDateYmd);
+  const [isRemember, setRemember] = useState(initialState.isRemember);
+
+  useEffect(() => {
+    setPrefecture(initialState.prefecture);
+    setOrderBy(initialState.orderBy);
+    setLanguages(initialState.languages);
+    setFrameworks(initialState.frameworks);
+    setEventDateBy(initialState.eventDateBy);
+    setEventDateYm(initialState.eventDateYm);
+    setEventDateYmd(initialState.eventDateYmd);
+    setKeywords(initialState.keywords);
+  }, [
+    initialState.prefecture,
+    initialState.orderBy,
+    initialState.languages,
+    initialState.frameworks,
+    initialState.eventDateBy,
+    initialState.eventDateYm,
+    initialState.eventDateYmd,
+    initialState.keywords,
+  ]);
 
   const handleCheckboxes = (
     setState: Dispatch<string[]>,
@@ -53,8 +111,32 @@ const SearchFormContainer: FC = () => {
     handleCheckboxes(setFrameworks, frameworks, framework);
   };
 
-  const handleRemember = (value: string) => {
+  const handleKeywords = (keyword: string) => {
+    if (keyword) {
+      setKeywords(keyword.split(/[\u{20}\u{3000}]/u));
+    } else {
+      setKeywords([]);
+    }
+  };
+
+  const handleIsRemember = (value: string) => {
     setRemember(isRemember.length ? [] : [value]);
+  };
+
+  const setLocalStorageCondition = () => {
+    const c = getConditionFromLocalStorage();
+    setPrefecture(c.prefecture || 'all');
+    setOrderBy(c.orderBy || '1');
+    setLanguages(c.languages.length ? c.languages : ['all']);
+    setFrameworks(c.frameworks.length ? c.frameworks : ['all']);
+    setEventDateBy(c.eventDateBy || 'all');
+    setEventDateYm({ y: c.eventDateYm.y || y, m: c.eventDateYm.m || m });
+    setEventDateYmd({
+      y: c.eventDateYmd.y || y,
+      m: c.eventDateYmd.m || m,
+      d: c.eventDateYmd.d || d,
+    });
+    setKeywords(c.keywords.length ? c.keywords : []);
   };
 
   return (
@@ -76,9 +158,10 @@ const SearchFormContainer: FC = () => {
       eventDateYmd={eventDateYmd}
       setEventDateYmd={setEventDateYmd}
       keywords={keywords}
-      setKeywords={setKeywords}
+      setKeywords={handleKeywords}
       isRemember={isRemember}
-      setRemember={handleRemember}
+      setRemember={handleIsRemember}
+      setLocalStorageCondition={setLocalStorageCondition}
     />
   );
 };

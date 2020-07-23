@@ -76,6 +76,7 @@
         "react/prop-types": "off",
         // "ignorePropertyModificationsFor" is not working...
         // https://eslint.org/docs/rules/no-param-reassign
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "no-nested-ternary": "off"
     }
 }

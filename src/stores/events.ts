@@ -34,9 +34,11 @@ export const { getEventsSuccess, getEventsFailed } = eventsSlice.actions;
 
 export default eventsSlice.reducer;
 
-export const fetchEvents = (): AppThunk => async (dispatch) => {
+export const fetchEvents = (queryString: string): AppThunk => async (
+  dispatch
+) => {
   try {
-    const events = await getEvents();
+    const events = await getEvents(queryString);
     dispatch(getEventsSuccess(events));
   } catch (error) {
     dispatch(getEventsFailed(error.toString()));
