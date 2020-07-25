@@ -46,3 +46,120 @@
 .articles_pagination {
   margin-top: 50px;
 }
+
+.loading {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.loading > div {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #9b3016;
+  border-radius: 100%;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.loading > div + div {
+  margin-left: 10px;
+}
+
+.loading .loadingdot1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.loading .loadingdot2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.articles.no_events,
+.articles.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
+  background-color: #ebe9e4;
+  border: solid 3px #9b3016;
+}
+
+.no_events_title,
+.error_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no_events_title > img,
+.error_title > img {
+  width: 40px;
+  height: 40px;
+}
+
+.no_events_title > span,
+.error_title > span {
+  margin-left: 10px;
+  color: #9b3016;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.no_events_text,
+.error_text {
+  margin-top: 30px;
+  color: #9b3016;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.no_events_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  margin-top: 30px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #9b3016;
+  border-radius: calc(45px / 2);
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.no_events_button:hover {
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}

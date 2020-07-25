@@ -6,6 +6,29 @@ import styles from 'styles/components/organisms/CurrentSearchCondition.module.sc
 
 const CurrentSearchCondition: FC = () => {
   const params = new URLSearchParams(useLocation().search);
+  const ym = params.get('ym');
+  const ymd = params.get('ymd');
+
+  const formatYYYYMM = (yyyymm: string): string => {
+    const yyyy = yyyymm.slice(0, 4);
+    const mm =
+      yyyymm.slice(4, 5) === '0' ? yyyymm.slice(5, 6) : yyyymm.slice(4, 6);
+    return `${yyyy}年${mm}月`;
+  };
+
+  const formatYYYYMMDD = (yyyymmdd: string): string => {
+    const yyyy = yyyymmdd.slice(0, 4);
+    const mm =
+      yyyymmdd.slice(4, 5) === '0'
+        ? yyyymmdd.slice(5, 6)
+        : yyyymmdd.slice(4, 6);
+    const dd =
+      yyyymmdd.slice(6, 7) === '0'
+        ? yyyymmdd.slice(7, 8)
+        : yyyymmdd.slice(6, 8);
+    return `${yyyy}年${mm}月${dd}日`;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.body}>
@@ -45,7 +68,9 @@ const CurrentSearchCondition: FC = () => {
           </li>
           <li className={styles.list}>
             <span className={styles.title}>開催日：</span>
-            <span className={styles.data}>2020年7月7日</span>
+            <span className={styles.data}>
+              {ym ? formatYYYYMM(ym) : ymd ? formatYYYYMMDD(ymd) : 'すべて'}
+            </span>
           </li>
           <li className={styles.list}>
             <span className={styles.title}>キーワード：</span>

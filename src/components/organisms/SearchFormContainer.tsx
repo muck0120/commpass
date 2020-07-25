@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect, useMemo, Dispatch } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import SearchForm from 'components/organisms/SearchForm';
+import { stringYear as y, stringMonth as m, stringDay as d } from 'app/date';
 import { getConditionFromLocalStorage } from 'app/localStorage';
 
 const SearchFormContainer: FC = () => {
@@ -14,10 +15,6 @@ const SearchFormContainer: FC = () => {
   const paramKeywords = params.get('keywords');
   const paramYm = params.get('ym');
   const paramYmd = params.get('ymd');
-
-  const y = new Date().getFullYear().toString();
-  const m = `0${(new Date().getMonth() + 1).toString()}`.slice(-2);
-  const d = `0${new Date().getDate().toString()}`.slice(-2);
 
   const callLanguages = () =>
     paramLanguages ? paramLanguages.split(',') : ['all'];

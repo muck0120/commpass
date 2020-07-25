@@ -1,5 +1,13 @@
 import axios from 'axios';
 
+import { getDefaultTermQuery } from 'app/date';
+
+export enum STATUS {
+  LOADING = 'loading',
+  SUCCESS = 'success',
+  ERROR = 'error',
+}
+
 /* eslint-disable camelcase */
 export interface Event {
   event_id: number;
@@ -38,7 +46,7 @@ export interface Events {
 
 export interface EventsResponse {
   data: Events;
-  status: 'success' | 'error';
+  status: STATUS;
   error_msg: string | null;
 }
 /* eslint-enable */
@@ -47,7 +55,7 @@ export const getEvents = async (queryString: string): Promise<Events> => {
   const prevParams = new URLSearchParams(queryString);
   const nextParams = new URLSearchParams();
 
-  const count = '10';
+  const count = '20';
   const prefecture = prevParams.get('prefecture');
   const orderBy = prevParams.get('orderBy');
   const languages = prevParams.get('languages');
@@ -71,6 +79,8 @@ export const getEvents = async (queryString: string): Promise<Events> => {
   if (orderBy) nextParams.append('order', orderBy);
   if (ym) nextParams.append('ym', ym);
   if (ymd) nextParams.append('ymd', ymd);
+
+  if (!ym && !ymd) nextParams.append('ym', getDefaultTermQuery());
 
   const url = `/api?${nextParams.toString()}`;
   return JSON.parse((await axios.get<string>(url)).data);

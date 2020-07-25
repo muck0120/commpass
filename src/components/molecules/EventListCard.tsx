@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Event } from 'apis/connpassAPI';
 import styles from 'styles/components/molecules/EventListCard.module.scss';
+import { formatDate } from 'app/date';
 import calendar from 'images/commons/icon-calendar.svg';
 import map from 'images/commons/icon-map.svg';
 import author from 'images/commons/icon-author.svg';
@@ -11,42 +12,60 @@ export interface EventProps {
   event: Event;
 }
 
-const EventListCard: FC<EventProps> = ({ event }) => {
+const EventListCard: FC<EventProps> = ({
+  event: {
+    title,
+    catch: catcher,
+    started_at: startedAt,
+    address,
+    owner_display_name: ownerDisplayName,
+    series,
+    accepted,
+    limit,
+  },
+}) => {
   return (
     <Link to="/event" target="_blank" className={styles.container}>
-      <h3 className={styles.title}>{event.title}</h3>
-      <p className={styles.description}>{event.catch}</p>
+      {title && <h3 className={styles.title}>{title}</h3>}
+      {catcher && <p className={styles.description}>{catcher}</p>}
       <hr className={styles.line} />
       <div className={styles.footer_top}>
-        <time
-          className={`${styles.date} ${styles.icon}`}
-          style={{ backgroundImage: `url(${calendar})` }}
-        >
-          {event.started_at}
-        </time>
-        <address
-          className={`${styles.address} ${styles.icon}`}
-          style={{ backgroundImage: `url(${map})` }}
-        >
-          {event.address}
-        </address>
+        {startedAt && (
+          <time
+            className={`${styles.date} ${styles.icon}`}
+            style={{ backgroundImage: `url(${calendar})` }}
+          >
+            {formatDate(startedAt)}
+          </time>
+        )}
+        {address && (
+          <address
+            className={`${styles.address} ${styles.icon}`}
+            style={{ backgroundImage: `url(${map})` }}
+          >
+            {address}
+          </address>
+        )}
       </div>
       <div className={styles.footer_bottom}>
-        <cite className={styles.owner}>
-          <span
-            className={`${styles.author} ${styles.icon}`}
-            style={{ backgroundImage: `url(${author})` }}
-          >
-            {event.owner_display_name}
-          </span>
-          <span className={styles.group}>
-            {event.series && event.series.title && (
-              <span>（＠{event.series.title}）</span>
+        {ownerDisplayName && (
+          <cite className={styles.owner}>
+            <span
+              className={`${styles.author} ${styles.icon}`}
+              style={{ backgroundImage: `url(${author})` }}
+            >
+              {ownerDisplayName}
+            </span>
+            {series && series.title && (
+              <span className={styles.group}>
+                <span>（＠{series.title}）</span>
+              </span>
             )}
-          </span>
-        </cite>
+          </cite>
+        )}
         <p className={styles.participant}>
-          参加者：{event.accepted}/{event.limit}人
+          参加者: {accepted?.toLocaleString() || '0'} /{' '}
+          {limit !== null ? limit.toLocaleString() : '∞'} 人
         </p>
       </div>
     </Link>

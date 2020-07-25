@@ -2,7 +2,7 @@
 
 $query_string = [];
 foreach ($_GET as $key => $value) {
-  array_push($query_string, $key . '=' . $value);
+  array_push($query_string, $key . '=' . urlencode($value));
 }
 
 $url = 'https://connpass.com/api/v1/event/?' . implode($query_string, '&');
