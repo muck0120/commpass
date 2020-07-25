@@ -14,6 +14,7 @@ export interface EventProps {
 
 const EventListCard: FC<EventProps> = ({
   event: {
+    event_id: eventId,
     title,
     catch: catcher,
     started_at: startedAt,
@@ -25,7 +26,13 @@ const EventListCard: FC<EventProps> = ({
   },
 }) => {
   return (
-    <Link to="/event" target="_blank" className={styles.container}>
+    <Link
+      to={`/event/${eventId}${
+        series && series.id ? `?series_id=${series.id}` : ''
+      }`}
+      target="_blank"
+      className={styles.container}
+    >
       {title && <h3 className={styles.title}>{title}</h3>}
       {catcher && <p className={styles.description}>{catcher}</p>}
       <hr className={styles.line} />

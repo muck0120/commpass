@@ -18,7 +18,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route exact path="/:page(\d+)?" component={Home} />
-          <Route exact path="/event" component={Event} />
+          <Route exact path="/event/:eventId(\d+)" component={Event} />
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>
