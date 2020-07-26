@@ -76,7 +76,7 @@ const SearchFormFooter: FC<SearchFormFooterProps> = ({
       keywords = keywords.map((keyword) => e(keyword));
       params.push(`keywords=${keywords.join(',')}`);
     }
-    history.push(`?${params.join('&')}`);
+    history.push(`/1?${params.join('&')}`);
   };
 
   return (

@@ -41,12 +41,14 @@ export const {
 
 export default eventsSlice.reducer;
 
-export const fetchEvents = (queryString: string): AppThunk => async (
-  dispatch
-) => {
+export const fetchEvents = (
+  per: number,
+  paged: number,
+  queryString: string
+): AppThunk => async (dispatch) => {
   dispatch(requestEvents());
   try {
-    const events = await getEvents(queryString);
+    const events = await getEvents(per, paged, queryString);
     dispatch(getEventsSuccess(events));
   } catch (error) {
     dispatch(getEventsFailed(error.toString()));

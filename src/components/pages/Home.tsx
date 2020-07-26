@@ -1,7 +1,11 @@
 import React, { FC, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { animateScroll as scroll } from 'react-scroll';
+import {
+  animateScroll as scroll,
+  Element as ScrollElement,
+  scroller,
+} from 'react-scroll';
 
 import { RootState } from 'stores';
 import { fetchEvents } from 'stores/events';
@@ -16,46 +20,27 @@ import sad from 'images/commons/icon-sad.svg';
 import { STATUS } from 'apis/connpassAPI';
 
 const Home: FC = () => {
-  const perPage = 20;
-  const {
-    events,
-    results_start: resultsStart,
-    results_available: resultsAvailable,
-  } = useSelector((state: RootState) => state.events.data);
+  const { events, results_available: resultsAvailable } = useSelector(
+    (state: RootState) => state.events.data
+  );
   const { status } = useSelector((state: RootState) => state.events);
   const { search } = useLocation();
+  const { paged } = useParams();
+  const perPage = 20;
+  const currentPage = Number(paged) || 1;
+  const totalPage = Math.ceil(resultsAvailable / perPage);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchEvents(search));
-  }, [search, dispatch]);
+    dispatch(fetchEvents(perPage, currentPage, search));
+  }, [perPage, currentPage, search, dispatch]);
 
-  const loading = () => {
-    return (
-      <div className={`${styles.loading} ${styles.articles}`}>
-        <div className={styles.loadingdot1} />
-        <div className={styles.loadingdot2} />
-        <div className={styles.loadingdot3} />
-      </div>
-    );
-  };
-
-  const error = () => {
-    return (
-      <div className={`${styles.error} ${styles.articles}`}>
-        <h2 className={styles.error_title}>
-          <img src={exclamation} alt="" />
-          <span>通信エラー</span>
-        </h2>
-        <p className={styles.error_text}>
-          申し訳ございません、通信時に何らかのエラーが発生しました。
-          <br />
-          再度操作を実行するか、それでも改善されない場合は
-          <br />
-          時間をあけて再度お試しください。
-        </p>
-      </div>
-    );
+  const handleClickPager = () => {
+    scroller.scrollTo('scrollFromPager', {
+      smooth: true,
+      offset: -10,
+      duration: 500,
+    });
   };
 
   return (
@@ -67,49 +52,67 @@ const Home: FC = () => {
         <aside className={styles.sidebar}>
           <CurrentSearchCondition />
         </aside>
-        {status === STATUS.SUCCESS &&
-          (resultsAvailable > 0 ? (
-            <article className={styles.articles}>
-              <div className={styles.articles_heading}>
-                <h2 className={styles.articles_heading_title}>
-                  {resultsAvailable.toLocaleString()}件がヒットしました
+        <article className={styles.articles}>
+          {status !== STATUS.ERROR &&
+            (resultsAvailable > 0 ? (
+              <ScrollElement name="scrollFromPager">
+                <div className={styles.articles_heading}>
+                  <h2 className={styles.articles_heading_title}>
+                    {resultsAvailable.toLocaleString()}件がヒットしました
+                  </h2>
+                  <div className={styles.articles_heading_page}>
+                    {currentPage} / {totalPage} ページ
+                  </div>
+                </div>
+                {events.map((event) => (
+                  <div key={event.event_id} className={styles.articles_card}>
+                    <EventListCard event={event} />
+                  </div>
+                ))}
+                <div className={styles.articles_pagination}>
+                  <EventListPager
+                    current={currentPage}
+                    total={totalPage}
+                    handleClickPager={handleClickPager}
+                  />
+                </div>
+              </ScrollElement>
+            ) : (
+              <div className={styles.no_events}>
+                <h2 className={styles.no_events_title}>
+                  <img src={sad} alt="" />
+                  <span>イベントが見つかりません</span>
                 </h2>
-                <div className={styles.articles_heading_page}>
-                  {Math.ceil(resultsStart / perPage)}/
-                  {Math.ceil(resultsAvailable / perPage)}ページ
-                </div>
+                <p className={styles.no_events_text}>
+                  条件に合致するイベントが見つかりません。
+                  <br />
+                  条件を変更して再度検索してください。
+                </p>
+                <button
+                  onClick={() => scroll.scrollToTop({ duration: 500 })}
+                  className={styles.no_events_button}
+                  type="button"
+                >
+                  条件を変更する
+                </button>
               </div>
-              {events.map((event) => (
-                <div key={event.event_id} className={styles.articles_card}>
-                  <EventListCard event={event} />
-                </div>
-              ))}
-              <div className={styles.articles_pagination}>
-                <EventListPager />
-              </div>
-            </article>
-          ) : (
-            <div className={`${styles.no_events} ${styles.articles}`}>
-              <h2 className={styles.no_events_title}>
-                <img src={sad} alt="" />
-                <span>イベントが見つかりません</span>
+            ))}
+          {status === STATUS.ERROR && (
+            <div className={styles.error}>
+              <h2 className={styles.error_title}>
+                <img src={exclamation} alt="" />
+                <span>通信エラー</span>
               </h2>
-              <p className={styles.no_events_text}>
-                条件に合致するイベントが見つかりません。
+              <p className={styles.error_text}>
+                申し訳ございません、通信時に何らかのエラーが発生しました。
                 <br />
-                条件を変更して再度検索してください。
+                再度操作を実行するか、それでも改善されない場合は
+                <br />
+                時間をあけて再度お試しください。
               </p>
-              <button
-                onClick={() => scroll.scrollToTop({ duration: 500 })}
-                className={styles.no_events_button}
-                type="button"
-              >
-                条件を変更する
-              </button>
             </div>
-          ))}
-        {status === STATUS.LOADING && loading()}
-        {status === STATUS.ERROR && error()}
+          )}
+        </article>
       </main>
     </DefaultTemplate>
   );

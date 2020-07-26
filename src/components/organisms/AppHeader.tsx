@@ -11,7 +11,7 @@ const AppHeader: FC = () => {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>
-        <Link to="/">
+        <Link to="/1">
           <img src={logo} alt="commpass" />
         </Link>
       </h1>

@@ -51,11 +51,16 @@ export interface EventsResponse {
 }
 /* eslint-enable */
 
-export const getEvents = async (queryString: string): Promise<Events> => {
+export const getEvents = async (
+  per: number,
+  paged: number,
+  queryString: string
+): Promise<Events> => {
   const prevParams = new URLSearchParams(queryString);
   const nextParams = new URLSearchParams();
 
-  const count = '20';
+  const count = per.toString();
+  const start = (per * (paged - 1) + 1).toString();
   const prefecture = prevParams.get('prefecture');
   const orderBy = prevParams.get('orderBy');
   const languages = prevParams.get('languages');
@@ -73,6 +78,7 @@ export const getEvents = async (queryString: string): Promise<Events> => {
   if (frameworks) keywordOr.push(frameworks);
 
   if (count) nextParams.append('count', count);
+  if (start) nextParams.append('start', start);
   if (keyword.length > 0) nextParams.append('keyword', keyword.join(','));
   if (keywordOr.length > 0)
     nextParams.append('keyword_or', keywordOr.join(','));
