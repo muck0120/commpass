@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import { configureStore, Action, ThunkAction } from '@reduxjs/toolkit';
 
 import eventsReducer from 'stores/events';
+import eventReducer from 'stores/event';
 
 const rootReducer = combineReducers({
   events: eventsReducer,
+  event: eventReducer,
 });
 
 const store = configureStore({ reducer: rootReducer });

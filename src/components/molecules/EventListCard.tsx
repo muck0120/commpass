@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Event } from 'apis/connpassAPI';
-import styles from 'styles/components/molecules/EventListCard.module.scss';
 import { formatDate } from 'app/date';
+import styles from 'styles/components/molecules/EventListCard.module.scss';
 import calendar from 'images/commons/icon-calendar.svg';
 import map from 'images/commons/icon-map.svg';
 import author from 'images/commons/icon-author.svg';

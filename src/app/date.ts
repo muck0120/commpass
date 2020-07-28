@@ -26,3 +26,10 @@ export const formatDate = (dateStr: string): string => {
   const date = new Date(dateStr);
   return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
 };
+
+export const formatTime = (dateStr: string): string => {
+  const date = new Date(dateStr);
+  const hours = `0${date.getHours().toString()}`.slice(-2);
+  const minutes = `0${date.getMinutes().toString()}`.slice(-2);
+  return `${hours}:${minutes}`;
+};

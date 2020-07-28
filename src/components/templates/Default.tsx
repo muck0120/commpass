@@ -9,7 +9,8 @@ import styles from 'styles/components/templates/Default.module.scss';
 import { STATUS } from 'apis/connpassAPI';
 
 const Default: FC = ({ children }) => {
-  const status: STATUS = useSelector((state: RootState) => state.events.status);
+  const load1: STATUS = useSelector((state: RootState) => state.events.status);
+  const load2: STATUS = useSelector((state: RootState) => state.event.status);
 
   return (
     <div className={styles.wrapper}>
@@ -20,7 +21,7 @@ const Default: FC = ({ children }) => {
       <div className={styles.footer}>
         <AppFooter />
       </div>
-      {status === STATUS.LOADING && <AppLoading />}
+      {(load1 === STATUS.LOADING || load2 === STATUS.LOADING) && <AppLoading />}
     </div>
   );
 };

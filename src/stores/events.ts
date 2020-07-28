@@ -10,7 +10,7 @@ const initialState: EventsResponse = {
     results_start: 0,
     events: [],
   },
-  status: STATUS.LOADING,
+  status: STATUS.SUCCESS,
   error_msg: null,
 };
 

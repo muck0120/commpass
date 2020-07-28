@@ -5,6 +5,7 @@ import { getDefaultTermQuery } from 'app/date';
 export enum STATUS {
   LOADING = 'loading',
   SUCCESS = 'success',
+  NOEVENT = 'no_event',
   ERROR = 'error',
 }
 
@@ -27,8 +28,8 @@ export interface Event {
   };
   address: string;
   place: string;
-  lat: number;
-  lon: number;
+  lat: string;
+  lon: string;
   owner_id: number;
   owner_nickname: string;
   owner_display_name: string;
@@ -46,6 +47,13 @@ export interface Events {
 
 export interface EventsResponse {
   data: Events;
+  status: STATUS;
+  error_msg: string | null;
+}
+
+export interface EventResponse {
+  data: Event | null;
+  hasEvent: boolean;
   status: STATUS;
   error_msg: string | null;
 }
@@ -68,6 +76,7 @@ export const getEvents = async (
   const ym = prevParams.get('ym');
   const ymd = prevParams.get('ymd');
   const keywords = prevParams.get('keywords');
+  const seriesId = prevParams.get('series_id');
 
   const keyword = [];
   if (prefecture) keyword.push(prefecture);
@@ -88,6 +97,13 @@ export const getEvents = async (
 
   if (!ym && !ymd) nextParams.append('ym', getDefaultTermQuery());
 
+  if (seriesId) nextParams.append('series_id', seriesId);
+
   const url = `/api?${nextParams.toString()}`;
   return JSON.parse((await axios.get<string>(url)).data);
+};
+
+export const getEventById = async (eventId: number): Promise<Event> => {
+  const url = `/api?event_id=${eventId}`;
+  return JSON.parse((await axios.get<string>(url)).data).events[0];
 };

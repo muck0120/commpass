@@ -43,6 +43,22 @@
   transition: all 0.3s;
 }
 
+.title.error {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title.error img {
+  width: auto;
+  height: 22px;
+}
+
+.title.error span {
+  margin-left: 5px;
+  color: #9b3016;
+}
+
 .post:hover > .title {
   color: #9b3016;
   transition: all 0.3s;

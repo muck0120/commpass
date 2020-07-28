@@ -16,10 +16,122 @@
 }
 
 .content {
-  height: 680px;
-  padding: 20px 15px;
+  padding: 30px;
+}
+
+.description {
+  line-height: 1.8;
+}
+
+.description h1,
+.description h2 {
+  color: #9b3016;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.description h3,
+.description h4 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.description * + h1,
+.description * + h2 {
+  margin-top: 50px;
+}
+
+.description * + h3,
+.description * + h4 {
+  margin-top: 30px;
+}
+
+.description * + * {
+  margin-top: 20px;
+}
+
+.description strong {
+  font-weight: bold;
+}
+
+.description a {
+  color: #9b3016;
+  text-decoration: underline;
+}
+
+.description a:hover {
+  text-decoration: none;
+}
+
+.description pre {
+  padding: 15px;
+  overflow: auto;
+  font-size: 13px;
+  background-color: #333;
+}
+
+.description pre * {
+  color: #fff;
+}
+
+.description ul,
+.description ol {
+  padding-left: 20px;
+  list-style-position: outside;
+}
+
+.description ul {
+  list-style-type: disc;
+}
+
+.description ol {
+  list-style-type: decimal;
+}
+
+.description ul li + li,
+.description ol li + li {
+  margin-top: 10px;
+}
+
+.description ul li li,
+.description ol li li {
+  margin-top: 10px;
+}
+
+.description img {
+  max-width: 100%;
+}
+
+.description table {
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
+  border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
+}
+
+.description table th,
+.description table td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+
+.description table td {
+  background-color: #fff;
+  border: 1px solid #333;
+}
+
+.description table th {
+  color: #fff;
+  text-align: center;
+  background-color: #9b3016;
+  border: 1px solid #333;
 }
 
 .updated_at {
+  display: block;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 12px;
   text-align: right;
 }
