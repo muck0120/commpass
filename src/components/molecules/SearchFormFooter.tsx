@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Checkbox from 'components/atoms/SearchFormCheck';
 import styles from 'styles/components/molecules/SearchFormFooter.module.scss';
 import { setConditionToLocalStorage } from 'app/localStorage';
+import { scrollToTopOfCardList } from 'app/scroller';
 
 interface SearchFormFooterProps {
   prefecture: string;
@@ -35,6 +36,8 @@ const SearchFormFooter: FC<SearchFormFooterProps> = ({
   const e = (value: string) => encodeURIComponent(value);
 
   const handleClick = () => {
+    scrollToTopOfCardList();
+
     if (isRemember) {
       setConditionToLocalStorage({
         prefecture,

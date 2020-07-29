@@ -1,11 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  animateScroll as scroll,
-  Element as ScrollElement,
-  scroller,
-} from 'react-scroll';
+import { Element as ScrollElement } from 'react-scroll';
 
 import { RootState } from 'stores';
 import { fetchEvents } from 'stores/events';
@@ -18,6 +14,7 @@ import styles from 'styles/components/pages/Home.module.scss';
 import exclamation from 'images/commons/icon-exclamation.svg';
 import sad from 'images/commons/icon-sad.svg';
 import { STATUS } from 'apis/connpassAPI';
+import { scrollToTopOfPage } from 'app/scroller';
 
 const Home: FC = () => {
   const { events, results_available: resultsAvailable } = useSelector(
@@ -35,14 +32,6 @@ const Home: FC = () => {
     dispatch(fetchEvents(perPage, currentPage, search));
   }, [perPage, currentPage, search, dispatch]);
 
-  const handleClickPager = () => {
-    scroller.scrollTo('scrollFromPager', {
-      smooth: true,
-      offset: -10,
-      duration: 500,
-    });
-  };
-
   return (
     <DefaultTemplate>
       <div className={styles.search}>
@@ -55,7 +44,7 @@ const Home: FC = () => {
         <article className={styles.articles}>
           {status !== STATUS.ERROR &&
             (resultsAvailable > 0 ? (
-              <ScrollElement name="scrollFromPager">
+              <ScrollElement name="TopOfCardList">
                 <div className={styles.articles_heading}>
                   <h2 className={styles.articles_heading_title}>
                     {resultsAvailable.toLocaleString()}件がヒットしました
@@ -70,11 +59,7 @@ const Home: FC = () => {
                   </div>
                 ))}
                 <div className={styles.articles_pagination}>
-                  <EventListPager
-                    current={currentPage}
-                    total={totalPage}
-                    handleClickPager={handleClickPager}
-                  />
+                  <EventListPager current={currentPage} total={totalPage} />
                 </div>
               </ScrollElement>
             ) : (
@@ -89,7 +74,7 @@ const Home: FC = () => {
                   条件を変更して再度検索してください。
                 </p>
                 <button
-                  onClick={() => scroll.scrollToTop({ duration: 500 })}
+                  onClick={scrollToTopOfPage}
                   className={styles.no_events_button}
                   type="button"
                 >
