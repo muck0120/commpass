@@ -1,10 +1,12 @@
 import React, { FC, useEffect } from 'react';
+import { Route } from 'react-router';
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Element as ScrollElement } from 'react-scroll';
 
 import { RootState } from 'stores';
 import { fetchEvents } from 'stores/events';
+import NotFound from 'components/pages/NotFound';
 import DefaultTemplate from 'components/templates/Default';
 import SearchFormContainer from 'components/organisms/SearchFormContainer';
 import CurrentSearchCondition from 'components/organisms/CurrentSearchCondition';
@@ -31,6 +33,10 @@ const Home: FC = () => {
   useEffect(() => {
     dispatch(fetchEvents(perPage, currentPage, search));
   }, [perPage, currentPage, search, dispatch]);
+
+  if (status === STATUS.SUCCESS && totalPage < currentPage) {
+    return <Route component={NotFound} />;
+  }
 
   return (
     <DefaultTemplate>

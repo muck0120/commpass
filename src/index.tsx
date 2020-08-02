@@ -1,11 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, useLocation } from 'react-router-dom';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { Provider } from 'react-redux';
 
 import Home from 'components/pages/Home';
 import Event from 'components/pages/Event';
+import NotFound from 'components/pages/NotFound';
 import store from 'stores';
 import * as serviceWorker from 'serviceWorker';
 
@@ -30,7 +31,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/:paged(\d+)?" component={Home} />
           <Route exact path="/event/:eventId(\d+)" component={Event} />
-          <Redirect to="/" />
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     </Provider>

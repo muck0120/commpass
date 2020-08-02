@@ -1,11 +1,12 @@
 import React, { FC, useEffect } from 'react';
-import { Redirect } from 'react-router';
+import { Route } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from 'stores';
 import { fetchEvent } from 'stores/event';
 import { STATUS } from 'apis/connpassAPI';
+import NotFound from 'components/pages/NotFound';
 import DefaultTemplate from 'components/templates/Default';
 import EventDetailHeader from 'components/organisms/EventDetailHeader';
 import EventDetailLink from 'components/organisms/EventDetailLink';
@@ -27,7 +28,7 @@ const Event: FC = () => {
   }, [eventId, dispatch]);
 
   if (!hasEvent) {
-    return <Redirect to="/" />;
+    return <Route component={NotFound} />;
   }
 
   return (
