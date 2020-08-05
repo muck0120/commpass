@@ -24,7 +24,7 @@ const AppFooter: FC = () => {
         <dd className={styles.tip}>
           ご要望やバグの報告等は、
           <a
-            href="https://twitter.com/"
+            href="https://twitter.com/commpass200806"
             target="_blank"
             rel="noopener noreferrer"
           >

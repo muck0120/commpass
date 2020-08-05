@@ -27,7 +27,7 @@ const AppHeader: FC = () => {
         </li>
         <li className={styles.icon}>
           <a
-            href="https://twitter.com/"
+            href="https://twitter.com/commpass200806"
             target="_blank"
             rel="noopener noreferrer"
           >
