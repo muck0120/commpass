@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery.scss';
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -31,6 +33,9 @@
   border: 1px solid #333;
   border-radius: 5px;
   cursor: pointer;
+  @include mq(sp) {
+    font-size: 12px;
+  }
 }
 
 .select:disabled {

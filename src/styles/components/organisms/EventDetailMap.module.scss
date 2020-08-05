@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery.scss';
+
 .container {
   background-color: #ebe9e4;
   border: solid 3px #9b3016;
@@ -13,6 +15,13 @@
   font-weight: bold;
   font-size: 18px;
   background-color: #9b3016;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    padding: 0 10px;
+    font-size: 16px;
+  }
 }
 
 .content {

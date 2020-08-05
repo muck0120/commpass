@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery';
+
 .container {
   position: sticky;
   top: 10px;
@@ -19,6 +21,12 @@
   font-weight: bold;
   font-size: 18px;
   background-color: #9b3016;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    font-size: 16px;
+  }
 }
 
 .content {
@@ -32,10 +40,22 @@
 
 .title {
   font-weight: bold;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
 }
 
 .data {
   margin-left: 10px;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
 }
 
 .button {
@@ -54,6 +74,13 @@
   cursor: pointer;
   opacity: 1;
   transition: all 0.3s;
+  @include mq(tb) {
+    width: 250px;
+    margin: 30px auto 0;
+  }
+  @include mq(sp) {
+    height: 40px;
+  }
 }
 
 .button:hover {

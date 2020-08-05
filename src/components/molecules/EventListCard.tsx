@@ -64,9 +64,7 @@ const EventListCard: FC<EventProps> = ({
               {ownerDisplayName}
             </span>
             {series && series.title && (
-              <span className={styles.group}>
-                <span>（＠{series.title}）</span>
-              </span>
+              <span className={styles.group}>（＠{series.title}）</span>
             )}
           </cite>
         )}

@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery';
+
 .container {
   display: flex;
   align-items: center;
@@ -10,11 +12,17 @@
   align-items: center;
   justify-content: center;
   width: calc(100% - 35px * 2);
+  @include mq(sp) {
+    width: 100%;
+  }
 }
 
 .block {
   width: 35px;
   height: 35px;
+  @include mq(sp) {
+    display: none;
+  }
 }
 
 .prev,

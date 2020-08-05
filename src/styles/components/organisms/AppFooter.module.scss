@@ -1,7 +1,15 @@
+@import 'styles/variables/mediaquery.scss';
+
 .footer {
   padding: 30px calc((100% - 1000px) / 2) 15px;
   background-color: #ebe9e4;
   border-top: solid 3px #9b3016;
+  @include mq(tb) {
+    padding: 30px 15px 50px;
+  }
+  @include mq(sp) {
+    padding: 30px 10px 50px;
+  }
 }
 
 .title {
@@ -17,6 +25,9 @@
   text-indent: -1.4em;
   list-style-position: inside;
   list-style-type: desc;
+  @include mq(tb) {
+    margin-top: 15px;
+  }
 }
 
 .tip a {

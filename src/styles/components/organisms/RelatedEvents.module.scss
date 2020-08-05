@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery.scss';
+
 .container {
   position: sticky;
   top: 10px;
@@ -16,10 +18,20 @@
   font-weight: bold;
   font-size: 18px;
   background-color: #9b3016;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    padding: 0 10px;
+    font-size: 16px;
+  }
 }
 
 .content {
   padding: 5px 15px;
+  @include mq(sp) {
+    padding: 5px 10px;
+  }
 }
 
 .post {
@@ -41,6 +53,12 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   transition: all 0.3s;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
 }
 
 .title.error {
@@ -76,4 +94,10 @@
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
 }

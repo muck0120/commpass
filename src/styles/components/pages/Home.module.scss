@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery';
+
 .search {
   width: 100%;
   height: 100%;
@@ -8,14 +10,24 @@
   align-items: stretch;
   justify-content: space-between;
   margin-top: 60px;
+  @include mq(tb) {
+    flex-direction: column-reverse;
+  }
 }
 
 .sidebar {
   width: 280px;
+  @include mq(tb) {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 
 .articles {
   width: 680px;
+  @include mq(tb) {
+    width: 100%;
+  }
 }
 
 .articles_heading {
@@ -25,18 +37,30 @@
   height: 50px;
   padding: 0 15px;
   background-color: #9b3016;
+  @include mq(sp) {
+    padding: 0 10px;
+  }
 }
 
 .articles_heading_title {
   color: #fff;
   font-weight: bold;
   font-size: 18px;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    font-size: 16px;
+  }
 }
 
 .articles_heading_page {
   color: #fff;
   font-weight: bold;
   font-size: 12px;
+  @include mq(sp) {
+    font-size: 10px;
+  }
 }
 
 .articles_card {
@@ -45,6 +69,12 @@
 
 .articles_pagination {
   margin-top: 50px;
+  @include mq(tb) {
+    margin-top: 40px;
+  }
+  @include mq(sp) {
+    margin-top: 30px;
+  }
 }
 
 .no_events,

@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery.scss';
+
 .container {
   background-color: #ebe9e4;
   border: solid 3px #9b3016;
@@ -13,14 +15,30 @@
   font-weight: bold;
   font-size: 18px;
   background-color: #9b3016;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    padding: 0 10px;
+    font-size: 16px;
+  }
 }
 
 .content {
   padding: 30px;
+  @include mq(tb) {
+    padding: 20px 15px;
+  }
+  @include mq(sp) {
+    padding: 20px 10px;
+  }
 }
 
 .description {
   line-height: 1.8;
+  @include mq(sp) {
+    line-height: 1.6;
+  }
 }
 
 .description h1,
@@ -28,26 +46,47 @@
   color: #9b3016;
   font-weight: bold;
   font-size: 20px;
+  @include mq(tb) {
+    font-size: 18px;
+  }
+  @include mq(sp) {
+    font-size: 16px;
+  }
 }
 
 .description h3,
 .description h4 {
   font-weight: bold;
   font-size: 16px;
+  @include mq(tb) {
+    font-size: 15px;
+  }
+  @include mq(sp) {
+    font-size: 14px;
+  }
 }
 
 .description * + h1,
 .description * + h2 {
   margin-top: 50px;
+  @include mq(sp) {
+    margin-top: 40px;
+  }
 }
 
 .description * + h3,
 .description * + h4 {
   margin-top: 30px;
+  @include mq(sp) {
+    margin-top: 20px;
+  }
 }
 
 .description * + * {
   margin-top: 20px;
+  @include mq(sp) {
+    margin-top: 10px;
+  }
 }
 
 .description strong {
@@ -68,6 +107,12 @@
   overflow: auto;
   font-size: 13px;
   background-color: #333;
+  @include mq(tb) {
+    font-size: 12px;
+  }
+  @include mq(sp) {
+    font-size: 11px;
+  }
 }
 
 .description pre * {
@@ -138,4 +183,7 @@
   font-weight: bold;
   font-size: 12px;
   text-align: right;
+  @include mq(sp) {
+    font-size: 10px;
+  }
 }

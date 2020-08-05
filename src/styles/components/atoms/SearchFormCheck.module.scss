@@ -1,3 +1,5 @@
+@import 'styles/variables/mediaquery.scss';
+
 .wrapper input {
   display: none;
 }
@@ -5,6 +7,12 @@
 .label {
   position: relative;
   padding-left: 23px;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
 }
 
 .label::before {
