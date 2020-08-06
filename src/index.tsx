@@ -1,7 +1,8 @@
 import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, useLocation } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
+import { BrowserRouter, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 
 import Home from 'components/pages/Home';
@@ -26,14 +27,16 @@ const ScrollToTop: FC = () => {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Switch>
-          <Route exact path="/:paged(\d+)?" component={Home} />
-          <Route exact path="/event/:eventId(\d+)" component={Event} />
-          <Route component={NotFound} />
-        </Switch>
-      </BrowserRouter>
+      <HelmetProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Switch>
+            <Route exact path="/:paged(\d+)?" component={Home} />
+            <Route exact path="/event/:eventId(\d+)" component={Event} />
+            <Route component={NotFound} />
+          </Switch>
+        </BrowserRouter>
+      </HelmetProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

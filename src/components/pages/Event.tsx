@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Head from 'components/meta/Head';
 import { RootState } from 'stores';
 import { fetchEvent } from 'stores/event';
 import { STATUS } from 'apis/connpassAPI';
@@ -33,6 +34,7 @@ const Event: FC = () => {
 
   return (
     <DefaultTemplate>
+      <Head title={event?.title} description={event?.catch} type="article" />
       <div className={styles.container}>
         {status !== STATUS.ERROR ? (
           <main className={styles.main}>

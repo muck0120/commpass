@@ -19,7 +19,7 @@ const EventDetailContent: FC<EventDetailMapProps> = ({
       <h3 className={styles.heading}>開催場所</h3>
       <div className={styles.content}>
         <LoadScript
-          googleMapsApiKey={process.env.REACT_APP_APP_GOOGLE_MAPS_API_KEY}
+          googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
         >
           <GoogleMap
             mapContainerStyle={mapStyle}

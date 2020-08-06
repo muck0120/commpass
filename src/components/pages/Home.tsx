@@ -4,6 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Element as ScrollElement } from 'react-scroll';
 
+import Head from 'components/meta/Head';
 import { RootState } from 'stores';
 import { fetchEvents } from 'stores/events';
 import NotFound from 'components/pages/NotFound';
@@ -29,6 +30,7 @@ const Home: FC = () => {
   const currentPage = Number(paged) || 1;
   const totalPage = Math.ceil(resultsAvailable / perPage);
   const dispatch = useDispatch();
+  const title = currentPage !== 1 ? `${currentPage}ページ目` : '';
 
   useEffect(() => {
     dispatch(fetchEvents(perPage, currentPage, search));
@@ -40,6 +42,7 @@ const Home: FC = () => {
 
   return (
     <DefaultTemplate>
+      <Head title={title} />
       <div className={styles.search}>
         <SearchFormContainer />
       </div>
