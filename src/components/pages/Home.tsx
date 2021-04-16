@@ -25,7 +25,7 @@ const Home: FC = () => {
   );
   const { status } = useSelector((state: RootState) => state.events);
   const { search } = useLocation();
-  const { paged } = useParams();
+  const { paged } = useParams<{ paged: string }>();
   const perPage = 20;
   const currentPage = Number(paged) || 1;
   const totalPage = Math.ceil(resultsAvailable / perPage);

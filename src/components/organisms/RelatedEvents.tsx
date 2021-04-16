@@ -16,7 +16,7 @@ const RelatedEvents: FC = () => {
   );
   const { status } = useSelector((state: RootState) => state.events);
   const { search } = useLocation();
-  const { eventId } = useParams();
+  const { eventId } = useParams<{ eventId: string }>();
   const dispatch = useDispatch();
 
   useEffect(() => {
