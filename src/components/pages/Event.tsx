@@ -21,7 +21,7 @@ const Event: FC = () => {
   const { data: event, hasEvent, status } = useSelector(
     (state: RootState) => state.event
   );
-  const { eventId } = useParams();
+  const { eventId } = useParams<{ eventId: string }>();
   const dispatch = useDispatch();
 
   useEffect(() => {
