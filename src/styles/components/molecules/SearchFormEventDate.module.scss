@@ -1,0 +1,80 @@
+@import 'styles/variables/mediaquery.scss';
+
+.wrapper,
+.group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  @include mq(tb) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 15px;
+  @include mq(tb) {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  @include mq(sp) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.select_block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+.group {
+  margin-right: 20px;
+  @include mq(tb) {
+    margin-top: 10px;
+  }
+  @include mq(sp) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.group + .group {
+  @include mq(tb) {
+    margin-top: 20px;
+  }
+}
+
+.select_block + .select_block {
+  margin-left: 15px;
+  @include mq(sp) {
+    margin: 5px 0 0 0;
+  }
+}
+
+.form_wrap {
+  width: 80px;
+  height: 20px;
+  @include mq(sp) {
+    width: 150px;
+  }
+}
+
+.select_block.year .form_wrap {
+  width: 100px;
+  @include mq(sp) {
+    width: 150px;
+  }
+}
+
+.select_block .unit {
+  margin-left: 5px;
+}

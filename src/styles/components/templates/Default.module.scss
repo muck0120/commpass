@@ -1,0 +1,27 @@
+@import 'styles/variables/mediaquery.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  padding: 60px calc((100% - 1000px) / 2) 120px;
+  @include mq(tb) {
+    padding: 30px 15px 60px;
+  }
+  @include mq(sp) {
+    padding: 20px 10px 40px;
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: auto;
+}

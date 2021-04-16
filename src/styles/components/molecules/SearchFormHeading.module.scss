@@ -1,0 +1,97 @@
+@import 'styles/variables/mediaquery.scss';
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  padding: 0 15px;
+  background-color: #9b3016;
+  @include mq(sp) {
+    padding: 0 10px;
+  }
+}
+
+.title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    font-size: 16px;
+  }
+}
+
+.storage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  margin-left: 10px;
+  padding: 0 15px;
+  color: #fff;
+  font-size: 12px;
+  border: 1px solid #fff;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: all 0.3s;
+  @include mq(tb) {
+    height: 20px;
+    border-radius: 10px;
+  }
+  @include mq(sp) {
+    font-size: 11px;
+  }
+}
+
+.storage:hover {
+  color: #9b3016;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.toggle {
+  position: relative;
+  margin-left: auto;
+  padding: 10px 20px 10px 10px;
+  color: #fff;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.toggle:hover {
+  cursor: pointer;
+}
+
+.toggle::after {
+  position: absolute;
+  top: calc(50% - 4px);
+  right: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent #fff transparent;
+  border-style: solid;
+  border-width: 0 7px 8px 7px;
+  content: '';
+}
+
+.toggle.open::after {
+  transform: rotate(0deg);
+  transition: all 1s;
+}
+
+.toggle.close::after {
+  transform: rotate(180deg);
+  transition: all 1s;
+}

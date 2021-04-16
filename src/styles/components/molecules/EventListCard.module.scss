@@ -1,0 +1,130 @@
+@import 'styles/variables/mediaquery';
+
+.container {
+  display: block;
+  padding: 20px 15px;
+  overflow: hidden;
+  background-color: #ebe9e4;
+  border: solid 3px #9b3016;
+  transition: all 0.3s;
+  @include mq(sp) {
+    padding: 15px 10px;
+  }
+}
+
+.container:hover {
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.title {
+  color: #9b3016;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.5;
+  @include mq(tb) {
+    font-size: 16px;
+  }
+  @include mq(sp) {
+    font-size: 14px;
+  }
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  @include mq(sp) {
+    font-size: 10px;
+  }
+}
+
+.line {
+  margin-top: 15px;
+  border-top: 2px dashed #d6d6d6;
+}
+
+.footer_top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 15px;
+  @include mq(sp) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.footer_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  @include mq(sp) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+}
+
+.date,
+.address,
+.owner,
+.participant {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  white-space: nowrap;
+  @include mq(sp) {
+    font-size: 10px;
+  }
+}
+
+.date {
+  padding-left: 18px;
+}
+
+.address {
+  display: inline-block;
+  flex: 1;
+  max-width: 100%;
+  margin-left: 15px;
+  padding-left: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @include mq(sp) {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+.owner {
+  display: inline-block;
+  flex: 1;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.author {
+  padding-left: 18px;
+}
+
+.participant {
+  margin-left: 15px;
+  @include mq(sp) {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+.icon {
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 14px;
+  @include mq(sp) {
+    background-size: auto 12px;
+  }
+}

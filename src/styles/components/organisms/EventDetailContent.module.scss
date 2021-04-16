@@ -1,0 +1,189 @@
+@import 'styles/variables/mediaquery.scss';
+
+.container {
+  background-color: #ebe9e4;
+  border: solid 3px #9b3016;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  padding: 0 15px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #9b3016;
+  @include mq(tb) {
+    font-size: 17px;
+  }
+  @include mq(sp) {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+}
+
+.content {
+  padding: 30px;
+  @include mq(tb) {
+    padding: 20px 15px;
+  }
+  @include mq(sp) {
+    padding: 20px 10px;
+  }
+}
+
+.description {
+  line-height: 1.8;
+  @include mq(sp) {
+    line-height: 1.6;
+  }
+}
+
+.description h1,
+.description h2 {
+  color: #9b3016;
+  font-weight: bold;
+  font-size: 20px;
+  @include mq(tb) {
+    font-size: 18px;
+  }
+  @include mq(sp) {
+    font-size: 16px;
+  }
+}
+
+.description h3,
+.description h4 {
+  font-weight: bold;
+  font-size: 16px;
+  @include mq(tb) {
+    font-size: 15px;
+  }
+  @include mq(sp) {
+    font-size: 14px;
+  }
+}
+
+.description * + h1,
+.description * + h2 {
+  margin-top: 50px;
+  @include mq(sp) {
+    margin-top: 40px;
+  }
+}
+
+.description * + h3,
+.description * + h4 {
+  margin-top: 30px;
+  @include mq(sp) {
+    margin-top: 20px;
+  }
+}
+
+.description * + * {
+  margin-top: 20px;
+  @include mq(sp) {
+    margin-top: 10px;
+  }
+}
+
+.description strong {
+  font-weight: bold;
+}
+
+.description a {
+  color: #9b3016;
+  text-decoration: underline;
+}
+
+.description a:hover {
+  text-decoration: none;
+}
+
+.description pre {
+  padding: 15px;
+  overflow: auto;
+  font-size: 13px;
+  background-color: #333;
+  @include mq(tb) {
+    font-size: 12px;
+  }
+  @include mq(sp) {
+    font-size: 11px;
+  }
+}
+
+.description pre * {
+  color: #fff;
+}
+
+.description ul,
+.description ol {
+  padding-left: 20px;
+  list-style-position: outside;
+}
+
+.description ul {
+  list-style-type: disc;
+}
+
+.description ol {
+  list-style-type: decimal;
+}
+
+.description ul li + li,
+.description ol li + li {
+  margin-top: 10px;
+}
+
+.description ul li li,
+.description ol li li {
+  margin-top: 10px;
+}
+
+.description img {
+  max-width: 100%;
+}
+
+.description table {
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
+  border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
+}
+
+.description table th,
+.description table td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+
+.description table td {
+  background-color: #fff;
+  border: 1px solid #333;
+}
+
+.description table th {
+  color: #fff;
+  text-align: center;
+  background-color: #9b3016;
+  border: 1px solid #333;
+}
+
+.description hr {
+  border-top: 2px dashed #d6d6d6;
+}
+
+.updated_at {
+  display: block;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: right;
+  @include mq(sp) {
+    font-size: 10px;
+  }
+}

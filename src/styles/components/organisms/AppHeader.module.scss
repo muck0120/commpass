@@ -1,0 +1,66 @@
+@import 'styles/variables/mediaquery.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 30px;
+  background-color: #ebe9e4;
+  border-bottom: solid 3px #9b3016;
+  @include mq(tb) {
+    height: 50px;
+    padding: 0 15px;
+  }
+  @include mq(sp) {
+    padding: 0 10px;
+  }
+}
+
+.header a {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.header a:hover {
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.title {
+  height: 30px;
+  margin-top: 10px;
+  @include mq(sp) {
+    height: 20px;
+  }
+}
+
+.title img {
+  width: auto;
+  height: 100%;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  height: 25px;
+  @include mq(sp) {
+    height: 20px;
+  }
+}
+
+.icon + .icon {
+  margin-left: 15px;
+  @include mq(sp) {
+    margin-left: 10px;
+  }
+}
+
+.icon img {
+  width: auto;
+  height: 100%;
+}

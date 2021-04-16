@@ -1,0 +1,53 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": { "paths": ["src"], "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    }
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { "variables": false, "functions": false }
+    ],
+    "@typescript-eslint/no-shadow": "error",
+    "import/extensions": [
+      "error",
+      { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+    "react/prop-types": "off",
+    "no-console": "off",
+    "no-use-before-define": "off",
+    "no-param-reassign": "off",
+    "no-nested-ternary": "off",
+    "no-shadow": "off",
+    "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }]
+  }
+}

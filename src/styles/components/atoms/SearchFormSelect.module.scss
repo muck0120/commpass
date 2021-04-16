@@ -1,0 +1,45 @@
+@import 'styles/variables/mediaquery.scss';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper::after {
+  position: absolute;
+  top: calc(50% - 3.5px);
+  right: 10px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: #333 transparent transparent transparent;
+  border-style: solid;
+  border-width: 7px 6px 0 6px;
+  content: '';
+  pointer-events: none;
+}
+
+.wrapper.disabled::after {
+  border-color: #d6d6d6 transparent transparent transparent;
+}
+
+.select {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  @include mq(sp) {
+    font-size: 12px;
+  }
+}
+
+.select:disabled {
+  color: #d6d6d6;
+  border: 1px solid #d6d6d6;
+  pointer-events: none;
+}

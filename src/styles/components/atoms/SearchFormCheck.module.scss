@@ -1,0 +1,42 @@
+@import 'styles/variables/mediaquery.scss';
+
+.wrapper input {
+  display: none;
+}
+
+.label {
+  position: relative;
+  padding-left: 23px;
+  @include mq(tb) {
+    font-size: 13px;
+  }
+  @include mq(sp) {
+    font-size: 12px;
+  }
+}
+
+.label::before {
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  content: '';
+}
+
+.wrapper input:checked + .label::after {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 5px;
+  display: block;
+  width: 10px;
+  height: 15px;
+  border-right: 3px solid #9b3016;
+  border-bottom: 3px solid #9b3016;
+  transform: rotate(45deg);
+  content: '';
+}

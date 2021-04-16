@@ -1,0 +1,29 @@
+@import 'styles/variables/mediaquery.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  color: #9b3016;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 18px;
+  border: 3px solid #9b3016;
+  border-radius: calc(45px / 2);
+  transition: all 0.3s;
+  @include mq(sp) {
+    font-size: 14px;
+    background-position: right 15px center;
+    background-size: 16px;
+  }
+}
+
+.container:hover {
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}

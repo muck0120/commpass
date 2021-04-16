@@ -1,0 +1,114 @@
+@import 'styles/variables/mediaquery.scss';
+
+.container {
+  background-color: #ebe9e4;
+  border: solid 3px #9b3016;
+}
+
+.content.open {
+  max-height: 600px;
+  overflow: hidden;
+  transition: all 0.7s;
+  @include mq(tb) {
+    max-height: 1000px;
+  }
+  @include mq(sp) {
+    max-height: 1300px;
+  }
+}
+
+.content.close {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.7s;
+}
+
+.inner {
+  padding: 25px 15px;
+  @include mq(tb) {
+    padding: 20px 15px;
+  }
+  @include mq(sp) {
+    padding: 20px 10px;
+  }
+}
+
+.group + .group {
+  margin-top: 30px;
+  @include mq(sp) {
+    margin-top: 25px;
+  }
+}
+
+.group_label {
+  font-weight: bold;
+  font-size: 16px;
+  @include mq(tb) {
+    font-size: 14px;
+  }
+}
+
+.group.select {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 50%;
+  @include mq(tb) {
+    width: 100%;
+  }
+  @include mq(sp) {
+    flex-direction: column;
+  }
+}
+
+.group_select_block {
+  width: calc(50% - 10px);
+  @include mq(tb) {
+    width: calc(50% - 7.5px);
+  }
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+.group_select_block + .group_select_block {
+  @include mq(sp) {
+    margin-top: 25px;
+  }
+}
+
+.group_form {
+  margin-top: 10px;
+}
+
+.group_form.select {
+  width: 100%;
+  height: 35px;
+  @include mq(sp) {
+    height: 30px;
+  }
+}
+
+.group_form.check {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.check_wrapper {
+  margin: 20px 20px 0 0;
+  @include mq(sp) {
+    margin: 15px 15px 0 0;
+  }
+}
+
+.group_form.text {
+  width: 100%;
+  height: 35px;
+}
+
+.footer {
+  margin-top: 30px;
+}

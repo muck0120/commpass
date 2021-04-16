@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nginx:
+    container_name: commpass_nginx
+    build: ./.docker/nginx
+    ports:
+      - "1180:80"
+    depends_on:
+      - php
+
+  php:
+    container_name: commpass_api
+    build: ./.docker/php
+    volumes:
+      - ./api:/code
