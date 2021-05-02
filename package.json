@@ -34,7 +34,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .ts,.tsx ./src & stylelint ./src/**/*.scss"
+    "lint": "eslint --ext .ts,.tsx ./src & stylelint ./src/**/*.scss",
+    "storybook": "start-storybook --ssl-cert .ssl/commpass.local.pem --ssl-key .ssl/commpass.local-key.pem --https -h commpass.local -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "proxy": "http://localhost:1180",
   "browserslist": {
@@ -50,10 +52,18 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
     "@types/react-redux": "^7.1.9",
     "@types/redux": "^3.6.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "babel-loader": "8.1.0",
+    "dotenv-cli": "^4.0.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -65,5 +75,17 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.18.0"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }
