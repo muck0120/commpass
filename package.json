@@ -29,7 +29,7 @@
     "typescript-fsa-reducers": "^1.2.2"
   },
   "scripts": {
-    "prestart": "docker-compose up -d",
+    "prestart": "docker-compose -f ./proxy/docker-compose.yml up -d",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
